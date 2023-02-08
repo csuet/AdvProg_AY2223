@@ -1,4 +1,5 @@
 LIBFLAGS = -lSDL2 -lSDL2_image
+LIBDIR = -ISDL2 -ISDL2
 all:
 	g++ -std=c++17 -c utils.cpp $(LIBFLAGS)
 	g++ -std=c++17 -c painter.cpp $(LIBFLAGS)
