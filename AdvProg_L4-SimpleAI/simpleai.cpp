@@ -17,37 +17,6 @@ int readWordLen()
 	cin >> wordLen;
 	return wordLen;
 }
-/***
-	Args:
-		min (int): left margin of a range
-		max (int): right margin of a range
-	Returns:
-		number (int) : random number in range [min; max]
-***/
-int generateRandomNumber(const int min, const int max)
-{
-	// TODO: Return a random integer number between min and max
-	int randomNumber = rand() % (max - min + 1) + min;
-	return randomNumber;
-}
-
-/***
-	Args:
-		ch (char): A character
-		word (string): a word
-	Returns:
-		result (bool) : the character ch is in the word or not.
-***/
-bool isCharInWord(const char ch, const string &word)
-{
-	// TODO: return true if ch is in word else return false
-	for (int i = 0; i < (int)word.size(); i++)
-	{
-		if (word[i] == ch)
-			return true;
-	}
-	return false;
-}
 
 /***
 	Args:
