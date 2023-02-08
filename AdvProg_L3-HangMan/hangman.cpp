@@ -17,7 +17,7 @@ using std::vector;
 int generateRandomNumber(const int min, const int max)
 {
 	// TODO: Return a random integer number between min and max
-	int randomNumber = rand() % (max - min) + min;
+	int randomNumber = rand() % (max - min + 1) + min;
 	return randomNumber;
 }
 
