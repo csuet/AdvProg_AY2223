@@ -11,7 +11,7 @@ run:
 	./main
 
 test:
-	chmod +x guessitTest
+	chmod +x painterTest
 	./painterTest
 
 clean:
