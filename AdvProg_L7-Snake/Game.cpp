@@ -48,14 +48,16 @@ Game::~Game()
 
 void Game::snakeMoveTo(Position pos)
 {
-	if (CELL_OFF_BOARD)
+	bool positionStatus = getCellType(pos);
+
+	if (positionStatus == CELL_OFF_BOARD)
 		return;
-	else if (CELL_SNAKE)
+	else if (positionStatus == CELL_SNAKE)
 	{
 		status = GAME_OVER;
 		return;
 	}
-	else if (CELL_CHERRY)
+	else if (positionStatus == CELL_CHERRY)
 	{
 		score++;
 		snake.eatCherry();
