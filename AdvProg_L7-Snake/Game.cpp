@@ -50,9 +50,7 @@ void Game::snakeMoveTo(Position pos)
 {
 	CellType positionStatus = getCellType(pos);
 
-	if (positionStatus == CELL_OFF_BOARD)
-		return;
-	else if (positionStatus == CELL_SNAKE)
+	if (positionStatus == CELL_OFF_BOARD || positionStatus == CELL_SNAKE)
 	{
 		status = GAME_OVER;
 		return;
