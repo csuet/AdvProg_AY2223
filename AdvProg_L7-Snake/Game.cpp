@@ -48,7 +48,7 @@ Game::~Game()
 
 void Game::snakeMoveTo(Position pos)
 {
-	bool positionStatus = getCellType(pos);
+	CellType positionStatus = getCellType(pos);
 
 	if (positionStatus == CELL_OFF_BOARD)
 		return;
