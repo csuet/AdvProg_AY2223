@@ -4,10 +4,17 @@
 #include <cmath>
 #include <cstdlib>
 
-//Mac
-#include <SDL2/SDL.h>
-//Windows
-// #include <SDL.h>
+#if defined(_WIN64) || defined(_WIN32)
+    #include <SDL.h>
+#else
+    #include <SDL2/SDL.h>
+#endif
+
+#if defined(_WIN64) || defined(_WIN32)
+    #include <SDL_image.h>
+#else
+    #include <SDL2/SDL_image.h>
+#endif
 
 const SDL_Color CYAN_COLOR = {0, 255, 255};
 const SDL_Color BLUE_COLOR = {0, 0, 255};

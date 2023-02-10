@@ -12,7 +12,7 @@ run:
 
 test:
 	chmod +x guessitTest
-	./guessitTest
+	./painterTest
 
 clean:
 	rm -rf *.o main painterTest
