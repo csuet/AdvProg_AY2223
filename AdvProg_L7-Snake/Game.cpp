@@ -62,9 +62,13 @@ void Game::snakeMoveTo(Position pos)
 		score++;
 		snake.eatCherry();
 		addCherry();
+		return;
 	}
 	else
+	{
 		setCellType(pos, CELL_SNAKE);
+		return;
+	}
 }
 
 /***
@@ -203,8 +207,9 @@ void Game::setCellType(Position pos, CellType cellType)
 	// if position is inside the play screen (width, height), set to the cellType.
 	// Otherwise, do nothing
 	// Suggestion: use pos.isInsideBox(...) in Position class
-	
-	if (pos.isInsideBox(0, 0, width, height)) squares[pos.y][pos.x] = cellType;
+
+	if (pos.isInsideBox(0, 0, width, height))
+		squares[pos.y][pos.x] = cellType;
 }
 
 // DO NOT change this method
