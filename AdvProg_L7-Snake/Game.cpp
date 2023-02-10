@@ -202,7 +202,7 @@ void Game::setCellType(Position pos, CellType cellType)
 	// Otherwise, do nothing
 	// Suggestion: use pos.isInsideBox(...) in Position class
 	
-	if (pos.isInsideBox(0, 0, width, height)) squares[pos.x][pos.y] = cellType;
+	if (pos.isInsideBox(0, 0, width, height)) squares[pos.y][pos.x] = cellType;
 }
 
 // DO NOT change this method
