@@ -290,7 +290,7 @@ protected:
         },
         {
             sharedName + "test normal 3", 
-            verifyTurnRight(30, 0, -30), 
+            verifyTurnRight(30, 0, 330), 
             "Wrong direction turn."
         },
         {
