@@ -52,7 +52,7 @@ void Painter::turnLeft(double degree)
 {
 	// TODO: rotate left the painter
 	const double maxAngle = 360;
-	double newAngle = this->angle + angle;
+	double newAngle = this->angle + degree;
 	if (newAngle > maxAngle)
 	{
 		while (newAngle > maxAngle) newAngle -= maxAngle;
