@@ -121,6 +121,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 ***/
 void updateEnteredChars(const char ch, string& chars){
     chars += ch;
+    chars += " ";
 }
 
 /***
