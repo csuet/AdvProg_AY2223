@@ -80,7 +80,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
         if(temp[i] >= 'A' && temp[i] <= 'Z'){
             temp[i] += 32;
         }
-        answer.push_back(index[i]);
+        answer.push_back(temp[i]);
     }
 
     return answer;
