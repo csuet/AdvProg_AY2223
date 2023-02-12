@@ -115,14 +115,18 @@ char getInputCharacter() {
 void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
     // TODO: Update the secret word if the character ch is in the answer word.
+    bool confirm = false;
     int limit = word.length();
     do{
     int old_index = 0;
     int index = word.find(ch,old_index);
     if(index>=0 && index < limit){
         secretWord[index] = word[index];
+        confirm = true;
+    }else{
+        confirm = false;
     }
-    }while(index>=0 && index< limit);
+    }while(confirm);
 }
 
 /***
