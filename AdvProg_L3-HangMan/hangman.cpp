@@ -122,7 +122,11 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
     int index = word.find(ch,old_index);
     if(index>=0 && index < limit){
         secretWord[index] = word[index];
-        old_index = index;
+        if(index == limit-1){
+            break;
+        }else{
+        old_index = index+1;
+        }
         confirm = true;
     }else{
         confirm = false;
