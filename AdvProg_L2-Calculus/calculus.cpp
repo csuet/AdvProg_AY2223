@@ -69,7 +69,7 @@ double mySqrt(double x) {
     if (x>0)
 	{
         double y=1.0;
-        while (y-x/y>0.000001||x/y-y>0.000001)
+        while (y-x/y>0.00001||x/y-y>0.00001)
             y=(y+x/y)/2;
         return y;
 	}
