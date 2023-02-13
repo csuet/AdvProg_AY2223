@@ -1,4 +1,7 @@
 #include "simpleai.h"
+#include <algorithm>
+
+using std::count;
 
 int readMaxGuess()
 {
@@ -53,7 +56,7 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
 
         int cnt = 0;
         for (int i = 0; i < candidateWords.size(); i++) {
-            cnt += candidateWords[i].find(current) != string::npos;
+            cnt += count(candidateWords[i].begin(), candidateWords[i].end(), current);
         }
 
         if (cnt > cnt_answer) {
