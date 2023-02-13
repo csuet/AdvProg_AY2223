@@ -6,5 +6,5 @@
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
-int factorial(int n);
+double factorial(int n);
 #endif
