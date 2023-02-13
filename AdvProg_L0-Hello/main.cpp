@@ -3,4 +3,5 @@
 
 int main(){
     std::cout << printGameOver() << std::endl ;
+    return 0;
 }
