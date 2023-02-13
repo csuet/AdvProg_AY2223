@@ -48,7 +48,7 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
 {
     char answer = 0; int cnt_answer = -1;
 
-    for (char current = 'a'; current < 'z'; current++) {
+    for (char current = 'a'; current <= 'z'; current++) {
         if (selectedChars.count(current)) continue;
 
         int cnt = 0;
