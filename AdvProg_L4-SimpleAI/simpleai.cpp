@@ -19,32 +19,6 @@ int readWordLen()
 
 /***
     Args:
-        min (int): left margin of a range
-        max (int): right margin of a range
-    Returns:
-        number (int) : random number in range [min; max]
-***/
-int generateRandomNumber(const int min, const int max)
-{
-    // TODO: Return a random integer number between min and max
-
-    return (rand() % (max - min + 1)) + min;
-}
-
-/***
-    Args:
-        ch (char): A character
-        word (string): a word
-    Returns:
-        result (bool) : the character ch is in the word or not.
-***/
-bool isCharInWord(const char ch, const string& word)
-{
-    return word.find(ch) != string::npos;
-}
-
-/***
-    Args:
         wordLen (int): The desired length of input word
         vocabulary (vector<string>): The vocabulary
     Returns:
