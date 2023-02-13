@@ -28,6 +28,13 @@ vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
 {
     vector<string> answer;
     //Write your code here
+    int limit = vocabulary.size();
+    for(int i = 0;i<limit;i++){
+        if(vocabulary[i].length() == wordLen){
+            answer.push_back(vocabulary[i]);
+        }
+    }
+
     return answer;
 }
 
@@ -56,6 +63,17 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
 {
     map<char, int> answer;
     //Write your code here
+    int limit_v = candidateWords.size();
+    for(int i = 0;i<limit_v;i++){
+        int limit_s = candidateWords[i].length();
+        for(int j = 0;j<limit_s;j++){
+            if(answer[candidateWords[i][j]] == 0){
+                answer[candidateWords[i][j]] = 1;
+            }else{
+                answer[candidateWords[i][j]]++;
+            }
+        }
+    }
     return answer;
 }
 
