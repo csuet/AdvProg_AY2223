@@ -28,11 +28,10 @@ int getPlayerGuess() {
     // TODO: Ask the player guest and return the player's number
     int num;
     cout << endl << "Enter your number between 1 and 100: ";
-    cin >> num;
-    while (num>100||num<1)
+    do
     {
         cin >> num;
-    }
+    }while(num>100||num<1);
     return num;
 }
 
