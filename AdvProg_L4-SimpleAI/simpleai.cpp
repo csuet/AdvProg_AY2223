@@ -1,7 +1,7 @@
 #include "simpleai.h"
 #include <algorithm>
 
-using std::count; 
+using std::count;
 
 int readMaxGuess()
 {
@@ -100,7 +100,7 @@ bool isCorrectChar(char ch, const string& mask)
 ***/
 bool isWholeWord(const string& mask)
 {
-    return mask.find('-') != string::npos;
+    return mask.find('-') == string::npos;
 }
 
 /***
