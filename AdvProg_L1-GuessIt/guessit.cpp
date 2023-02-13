@@ -116,7 +116,3 @@ int run() {
     } while (checkContinuePlaying(isContinued));
     return 0;
 }
-int main()
-{
-    run();
-}
