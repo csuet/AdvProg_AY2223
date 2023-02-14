@@ -23,7 +23,7 @@ double myCos(double x)
     double c = 0, c_old=2;
     double temp = 1;
     int n = 1;
-    while (abs(c-c_old)>0.0000001)
+    while (c-c_old>=0.00001||c_old-c>=0.00001)
     {
         c_old = c;
         c = c+temp;
@@ -44,7 +44,7 @@ double mySin(double x)
     double s = 0, s_old=2;
     double temp = x;
     int n = 2;
-    while (abs(s-s_old)>0.0000001)
+    while (s-s_old>=0.00001||s_old-s>=0.00001)
     {
         s_old = s;
         s = s+temp;
@@ -69,8 +69,7 @@ double mySqrt(double x) {
     if (x>0)
 	{
         double y=1.0;
-        while (abs(x/y-y)>=0.0000001)
-            y=(y+x/y)/2;
+        while (y-x/y>0.000001||x/y-y>0.000001)  y=(y+x/y)/2;
         return y;
 	}
     return 0;
