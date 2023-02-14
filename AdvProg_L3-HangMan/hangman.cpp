@@ -114,7 +114,6 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
         if(word[i] == ch && secretWord[i] == '-')
         {
             secretWord[i] = word[i];
-            break;
         }
     }
 }
