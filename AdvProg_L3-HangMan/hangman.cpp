@@ -55,11 +55,12 @@ vector<string> readWordListFromFile(const string& filePath)
 bool isCharInWord(const char ch, const string& word)
 {
     // TODO: return true if ch is in word else return false
-    if ((int)word.find(ch) != -1) {
-    return true;
-    } else {
-        return false;
+    for(int i = 0; i < word.length(); i++) {
+        if(word[i] == ch) {
+            return true;
+        }
     }
+    return false;
 }
 
 /***
@@ -127,6 +128,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 ***/
 void updateEnteredChars(const char ch, string& chars){
     // TODO: append the character ch is in end of the text chars
+    chars =  chars + ch + " ";
 }
 
 /***
@@ -164,5 +166,12 @@ void processData(const char ch, const string& word,
             update incorrectGuess: call updateIncorrectGuess() function
             update incorrectChars: call updateEnteredChars() function
     ***/
+    if(isCharInWord(ch, word) == true) {
+        updateSecretWord(secretWord, ch, word);
+        updateEnteredChars(correctChars, ch);
+    } else {
+        updateEnteredChars(incorrectGuess, ch);
+        updateIncorrectGuess(incorrectGuess);
+    }
 }
 
