@@ -50,9 +50,9 @@ double myCos(double x)
 double mySin(double x)
 {
     double sin = 0;
-    double presin;
+    double presin=1;
     int n = 1;
-    while (abs(cos - precos) > 0.000001)
+    while (abs(sin- presin) > 0.000001)
     {
         presin = sin;
         sin = presin + pow(-1, (n-1) / 2) * pow(x, n) / factorial(n);
