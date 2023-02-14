@@ -75,7 +75,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
     string answer;
     answer = wordList[index];
     for (int i = 0; i < answer.length(); i++) {
-        if (answer[i] <= 'Z' || answer[i] >= 'A') {
+        if (answer[i] <= 'Z' && answer[i] >= 'A') {
             answer[i] += 32;
         }
     }
