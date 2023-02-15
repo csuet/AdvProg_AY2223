@@ -53,9 +53,9 @@ string getAnswer(int number, int randomNumber) {
     if (randomNumber == number) {
         answer = "Congratulation! You win.";
     } else if (randomNumber > number) {
-        answer = "Your number is higher.";
-    } else {
         answer = "Your number is lower.";
+    } else {
+        answer = "Your number is higher.";
     }
     return answer;
 }
