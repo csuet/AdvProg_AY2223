@@ -10,7 +10,7 @@ using std::ifstream;
 using std::string;
 using std::vector;
 
-mt19937 Rand(chrono::high_resolution_clock::now().time_since_epoch().count());
+std::mt19937 Rand(std::chrono::high_resolution_clock::now().time_since_epoch().count());
 
 /***
     Args:
