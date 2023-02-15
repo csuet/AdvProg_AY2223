@@ -104,7 +104,6 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
     for (int i = 0; i < wordLen; ++i){
         if (word[i] != ch || secretWord[i] != '-') continue;
         secretWord[i] = ch;
-        return;
     }
 }
 
