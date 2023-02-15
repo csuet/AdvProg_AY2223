@@ -3,6 +3,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <string>
+#include <cctype>
 
 using std::string;
 using std::vector;
