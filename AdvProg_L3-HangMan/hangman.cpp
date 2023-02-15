@@ -57,7 +57,10 @@ vector<string> readWordListFromFile(const string &filePath)
 ***/
 bool isCharInWord(const char ch, const string &word)
 {
-    return word.find(ch) != -1;
+    for (auto i : word)
+        if (i == ch)
+            return true;
+    return false;
 }
 
 /***
