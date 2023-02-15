@@ -12,7 +12,6 @@ void Painter::setColor(SDL_Color color)
     SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 }
 
-
 /***
     Args: numPixel (int): number of pixel for jumping forward
         
