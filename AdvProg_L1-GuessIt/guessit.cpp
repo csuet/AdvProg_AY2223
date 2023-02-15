@@ -42,14 +42,14 @@ int getPlayerGuess() {
 ***/
 string getAnswer(int number, int randomNumber) {
     /*** 
-        T check number with randomNumber and return the result.
+        TODO: check number with randomNumber and return the result.
               If number is higher than randomNumber, the answer is "Your number is higher."
               If number is lower than randomNumber, the answer is "Your number is lower."
               If number is equal randomNumber, the answer is "Congratulation! You win."
     ***/
     string answer;
     if( number > randomNumber ) answer="Your number is higher.";
-    if( number < randomNumber ) answer="Your number is lower.";
+    else if( number < randomNumber ) answer="Your number is lower.";
     else answer="Congratulation! You win.";
     return answer;
 }
