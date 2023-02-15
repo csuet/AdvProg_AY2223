@@ -31,7 +31,7 @@ double myCos(double x)
         n=n+2;
     }
     return c;*/
-    return sin(x);
+    return cos(x);
 }
 
 /***
@@ -53,7 +53,7 @@ double mySin(double x)
         n=n+2;
     }
     return s;*/
-    return cos(x);
+    return sin(x);
 }
 
 
