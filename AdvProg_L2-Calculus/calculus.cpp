@@ -41,7 +41,7 @@ double mySin(double x)
     for (int i = 3; i < 40; i += 2)
     {
         temp *= -(x*x)/(i*(i-1));
-        cosx += temp;
+        sinx += temp;
     }
     return sinx;
 }
