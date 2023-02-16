@@ -3,6 +3,6 @@
 
 std::string printGameOver()
 {
-	// New Commit
-	return "Game over!";
+	std:: string res= "Game over!";
+	return res;
 }
