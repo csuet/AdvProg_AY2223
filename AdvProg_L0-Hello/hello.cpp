@@ -4,5 +4,5 @@
 std::string printGameOver()
 {
 	//COMMIT
-	return "Game over!";
+	return "Game Over!";
 }
