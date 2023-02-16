@@ -37,7 +37,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    double sinx = 1, temp = 1;
+    double sinx = x, temp = x;
     for (int i = 3; i < 40; i += 2)
     {
         temp *= -(x*x)/(i*(i-1));
