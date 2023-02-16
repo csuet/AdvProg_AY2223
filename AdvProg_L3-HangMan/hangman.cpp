@@ -162,12 +162,12 @@ void processData(const char ch, const string& word,
     ***/
     if (isCharInWord(ch, word))
     {
-        updateSecretWord();
+        updateSecretWord(secretWord, ch, word);
         updateEnteredChars(ch, correctChars);
     }
     else
     {
-        updateIncorrectGuess();
+        updateIncorrectGuess(incorrectGuess);
         updateEnteredChars(ch, incorrectChars);
     }
 }
