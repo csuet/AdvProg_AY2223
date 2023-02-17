@@ -6,9 +6,8 @@
 using namespace std;
 
 
-
 int generateRandomNumber() {
-    return rand() % 100 + 1;
+    return rand() % 5 + 1;
     
 }
 
@@ -37,7 +36,7 @@ string getAnswer(int number, int randomNumber) {
 
 
 bool checkSuccess(string answer) {
-    // TODO: return the result after checking that player guessed right or wrong
+    // TODO: return the result after checE king that player guessed right or wrong
     if (answer != "Congratulation! You win.") return false;
     return true;
 }
@@ -55,9 +54,15 @@ bool checkContinuePlaying(char isContinued) {
 
 char getPlayerOpinion() {
     // TODO: Ask the player about continue playing and return the player's choice
-    char isContinued;
-    cin >> isContinued;
-    return isContinued;
+    cout << "m choi nx ko" << endl;
+    string input;
+    cin >> input;
+    if (input == "ok") {
+    	return 'Y';
+	}
+	else {
+		return 'N';
+	}
 }
 
 
@@ -73,7 +78,7 @@ void playGuessIt() {
     } while (!checkSuccess(answer));
 }
 
-int run() {
+int main() {
     srand(time(0));
     char isContinued;
     do {
