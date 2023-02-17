@@ -46,7 +46,9 @@ vector<string> filterWordsByLen(int wordLen, const vector<string> &vocabulary)
 char nextCharWhenWordIsNotInDictionary(const set<char> &selectedChars)
 {
     char answer;
-    // Write your code here
+    for (answer = 'a'; answer <= 'z'; ++answer)
+        if (selectedChars.find(answer) == selectedChars.end())
+            break;
     return answer;
 }
 
