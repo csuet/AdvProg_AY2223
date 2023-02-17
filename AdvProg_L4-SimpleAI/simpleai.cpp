@@ -81,9 +81,15 @@ char findMostFrequentChar(const map<char, int> &occurrences, const set<char> &se
     char answer;
     int maxn = -1;
 
-    for (auto &ch : selectedChars)
-        if (maxn < occurrences[ch])
-            maxn = occurrences[answer = ch];
+    for (auto j : occurrences)
+        if (selectedChars.find(j.first) != selectedChars.end())
+        {
+            if (maxn < j.second)
+            {
+                maxn = j.second;
+                answer = j.first;
+            }
+        }
 
     return answer;
 }
@@ -118,7 +124,7 @@ string getWordMask(char nextChar)
 /***
     Args:
         ch (char): The predicted character by the AI
-        mask (string): The response mask by the player
+        mask (string): The response mas k by the player
     Returns:
         answer (bool) : return False if the predicted character is the wrong one, True otherwise
 ***/
