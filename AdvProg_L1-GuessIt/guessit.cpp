@@ -8,7 +8,6 @@ using namespace std;
 
 /***
     Args:
-
     Returns:
         number (int) : random number in range 1-100
 ***/
@@ -21,7 +20,6 @@ int generateRandomNumber() {
 
 /***
     Args:
-
     Returns:
         number (int) : the number that player guessed
 ***/
@@ -96,7 +94,6 @@ bool checkContinuePlaying(char isContinued) {
 
 /***
     Args:
-
     Returns:
         isContinues (char) : player's choice (continue playing or not)
 ***/
@@ -130,4 +127,3 @@ int main() {
     } while (checkContinuePlaying(isContinued));
     return 0;
 }
-
