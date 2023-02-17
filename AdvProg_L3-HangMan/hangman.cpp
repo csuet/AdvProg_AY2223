@@ -84,7 +84,7 @@ string generateHiddenCharacters(string answerWord){
     string secretWord;
     for ( int i=0 ; i< (int)answerWord.size() ;  i++)
     {
-        secretWord+='-';
+        secretWord +='-';
     }
 
     return secretWord;
@@ -122,7 +122,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 ***/
 void updateEnteredChars(const char ch, string& chars){
     // TODO: append the character ch is in end of the text chars
-    chars+= ch +' ';
+    chars+= (ch +' ');
 }
 
 /***
@@ -133,7 +133,7 @@ void updateEnteredChars(const char ch, string& chars){
 ***/
 void updateIncorrectGuess(int& incorrectGuess){
     // TODO: increase the value of incorrectGuess by 1
-    incorrectGuess ++;
+    incorrectGuess+=1 ;
 }
 
 /***
