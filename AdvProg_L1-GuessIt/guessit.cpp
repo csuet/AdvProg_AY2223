@@ -49,10 +49,10 @@ string getAnswer(int number, int randomNumber) {
     ***/
     string answer;
     if (number < randomNumber) {
-        answer = "Your number is lower";
+        answer = "Your number is lower.";
     }
     else if (number > randomNumber) {
-        answer = "Your number is higher";
+        answer = "Your number is higher.";
     }
     else {
         answer = "Congratulation! You win.";
@@ -85,7 +85,7 @@ bool checkSuccess(string answer) {
 bool checkContinuePlaying(char isContinued) {
     // TODO: return result after checking player continue playing or not
     bool result = false;
-    if(isContinued == 'y'){
+    if(isContinued == 'Y'){
         result = true;
     }
     return result;
