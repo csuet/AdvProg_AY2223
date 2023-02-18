@@ -33,7 +33,6 @@ double mySin(double x)
 {
     return sin(x);
 }
-//t00
 
 /***
     Args:
