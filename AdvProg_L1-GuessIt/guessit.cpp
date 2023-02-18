@@ -7,15 +7,15 @@ using namespace std;
 
 int generateRandomNumber()
 {
-    return rand()%100+1 ;
+    return rand()%100 + 1 ;
 }
 
-int getPlayerGuess()
+int getPlayerGuess() 
 {
-    int number ;
-    cout << "Please, enter the number you guess (from 1 to 100): " ;
-    cin >> number ;
-    return number ;
+    int number;
+    cout << "Enter yours guess (1..100): ";
+    cin >> number;
+    return number;
 }
 
 string getAnswer(int number, int randomNumber)
@@ -23,22 +23,22 @@ string getAnswer(int number, int randomNumber)
     string answer ;
     if(number < randomNumber)
     {
-        answer = "The number is too small!" ;
+       answer = "Your number is lower.";
     }
     else if(number > randomNumber)
     {
-        answer = "The number is too large!" ;
+         answer = "Your number is higher.";
     }
     else
     {
-        answer = "You are the winner. Congratulation!" ;
+        answer = "Congratulation! You win.";
     }
     return answer ;
 }
 
 bool checkSuccess(string answer)
 {
-    if (answer == "You are the winner. Congratulation!")
+    if (answer == "Congratulation! You win.") 
     {
         return true;
     }
@@ -48,34 +48,29 @@ bool checkSuccess(string answer)
     }
 }
 
-bool checkContinuePlaying(char isContinued)
+bool checkContinuePlaying(char isContinued) 
 {
-    bool result ;
-    if (isContinued == 'Y' || isContinued == 'y')
+    bool result = false ;
+    if (isContinued == 'Y' || isContinued == 'y') 
     {
-        result = true;
+        result = true ;
     }
-    else
-    {
-        result = false ;
-    }
-    return result;
+    return result ;
 }
 
 char getPlayerOpinion()
 {
     char isContinued;
-    cout << "Do you want to play again? [Y/N]: " ;
     cin >> isContinued ;
     return isContinued ;
 }
 
 void playGuessIt()
 {
-    int randomNumber = generateRandomNumber();
-    int number;
-    string answer;
-    do
+    int randomNumber = generateRandomNumber() ;
+    int number ;
+    string answer ;
+    do 
     {
         number = getPlayerGuess();
         answer = getAnswer(number, randomNumber);
