@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <math.h>
 
 using std::string;
 using std::cout;
@@ -18,9 +19,10 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
-double myCos(double x) 
+double myCos(double x)
 {
-    return 0.0;
+    double cosx = cos(x);
+    return cosx;
 }
 
 /***
@@ -31,7 +33,8 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double sinx = sin(x);
+    return sinx;
 }
 
 
@@ -46,7 +49,9 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
+    else {
+        double sqrtx = sqrt(x);
+    }
 
-    
-    return 0;
+    return sqrtx;
 }
