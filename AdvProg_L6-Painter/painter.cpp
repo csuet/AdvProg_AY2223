@@ -79,10 +79,10 @@ void Painter::randomColor()
 {
     // TODO: set random color    
     srand(time(0));
-    unsigned char a = rand()%256;
-    unsigned char b = rand()%256;
-    unsigned char c = rand()%256;
-    unsigned char d = rand()%256;
+    unsigned int a = rand()%256;
+    unsigned int b = rand()%256;
+    unsigned int c = rand()%256;
+    unsigned int d = rand()%256;
     color.r = a;
     color.g = b;
     color.b = c;
