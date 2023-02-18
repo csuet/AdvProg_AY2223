@@ -51,7 +51,9 @@ vector<string> readWordListFromFile(const string& filePath)
 bool isCharInWord(const char ch, const string& word)
 {
     // TODO: return true if ch is in word else return false
-    return true;
+    for(char x:word) if(ch == x)
+        return true;
+    return false;
 }
 
 /***
@@ -159,13 +161,9 @@ void processData(const char ch, const string& word,
             update incorrectGuess: call updateIncorrectGuess() function
             update incorrectChars: call updateEnteredChars() function
     ***/
-    bool ok = false;
-    for(char x:word) 
-        if(x == ch) {
-            ok = true; break;
-        }
+   
 
-    if(ok) {
+    if(isCharInWord(ch,word)) {
         updateSecretWord(secretWord,ch,word);
         updateEnteredChars(ch,correctChars);
     }
