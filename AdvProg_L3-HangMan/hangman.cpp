@@ -17,7 +17,7 @@ using std::cin;
 int generateRandomNumber(const int min, const int max)
 {
     // TODO: Return a random integer number between min and max
-    return 1;
+    return min + (rand() * (int)(max - min) / RAND_MAX);
 }
 
 vector<string> readWordListFromFile(const string& filePath)
@@ -65,7 +65,11 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
     string answer;
-
+    answer = wordList[index];
+    int n = answer.size();
+    for(int i = 0; i < n; ++i) {
+        answer[i] = tolower(answer[i]);
+    }
     return answer;
 }
 
@@ -75,10 +79,12 @@ string chooseWordFromList(const vector<string>& wordList, int index)
     Returns:
         secretWord (string): answerWord in hidden form (form of ---)
 ***/
-string generateHiddenCharacters(string answerWord){
+string fHiddenCharacters(string answerWord){ 
     // TODO: Based on answerWord's length, generate hidden characters in form of "---"
     string secretWord;
-
+    secretWord = "";
+    int n = answerWord.size();
+    for(int i = 0; i < n; ++i) secretWord += '-';
     return secretWord;
 }
 
@@ -98,7 +104,12 @@ char getInputCharacter() {
 ***/
 void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
-    // TODO: Update the secret word if the character ch is in the answer word.
+    int n = secretWord.size();
+    
+    for(int i = 0; i < n; ++i) 
+        if(word[i] == ch) {
+            secretWord[i] = ch;
+        }
 }
 
 /***
@@ -110,6 +121,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 ***/
 void updateEnteredChars(const char ch, string& chars){
     // TODO: append the character ch is in end of the text chars
+    chars += ch;
 }
 
 /***
@@ -119,6 +131,7 @@ void updateEnteredChars(const char ch, string& chars){
         void
 ***/
 void updateIncorrectGuess(int& incorrectGuess){
+    incorrectGuess++;
     // TODO: increase the value of incorrectGuess by 1
 }
 
@@ -146,5 +159,19 @@ void processData(const char ch, const string& word,
             update incorrectGuess: call updateIncorrectGuess() function
             update incorrectChars: call updateEnteredChars() function
     ***/
+    bool ok = false;
+    for(char x:word) 
+        if(x == ch) {
+            ok = true; break;
+        }
+
+    if(ok) {
+        updateSecretWord(secretWord,ch,word);
+        updateEnteredChars(ch,correctChars);
+    }
+    else {
+        updateIncorrectGuess(incorrectGuess);
+        updateEnteredChars(ch,incorrectChars);
+    }
 }
 
