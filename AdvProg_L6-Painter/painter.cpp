@@ -83,7 +83,10 @@ void Painter::randomColor()
     unsigned char b = rand()%256;
     unsigned char c = rand()%256;
     unsigned char d = rand()%256;
-    color = {a, b, c, d};
+    color.r = a;
+    color.g = b;
+    color.b = c;
+    color.a = d;
 }
 
 
