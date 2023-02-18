@@ -1,5 +1,5 @@
 #include "painter.h"
-
+#include <time.h>
 /***
     Args: color (SDL_Color): color value 
         
@@ -79,8 +79,11 @@ void Painter::randomColor()
 {
     // TODO: set random color    
     srand(time(0));
-    color = {rand()%256, rand()%256, rand()%256, rand()%256};
-    
+    unsigned char a = rand()%256;
+    unsigned char b = rand()%256;
+    unsigned char c = rand()%256;
+    unsigned char d = rand()%256;
+    color = {a, b, c, d};
 }
 
 
