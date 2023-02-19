@@ -7,7 +7,6 @@
 #include <cppunit/BriefTestProgressListener.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
 
-
 #include "painter.h"
 #include "utils.h"
 
