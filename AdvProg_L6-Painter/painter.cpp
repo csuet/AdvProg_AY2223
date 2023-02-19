@@ -71,7 +71,7 @@ void Painter::turnRight(double degree)
         None
 ***/
 
-std::mt19937 Rand(chrono::high_resolution_clock::now().time_since_epoch().count());
+std::mt19937 Rand(std::chrono::high_resolution_clock::now().time_since_epoch().count());
 
 int generateRandomNumber(int l, int r)
 {
