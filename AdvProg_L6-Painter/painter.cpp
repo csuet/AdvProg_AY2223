@@ -1,4 +1,7 @@
 #include "painter.h"
+#include <chrono>
+#include <ctime>
+#include <random>
 
 /***
     Args: color (SDL_Color): color value
