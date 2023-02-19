@@ -68,8 +68,8 @@ string chooseWordFromList(const vector<string> &wordList, int index)
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
     string answer = wordList[index];
-    for (int i = 0; i < answer.length(); i++)
-        answer[i] = tolower(answer[i]);
+    for (auto &x : answer)
+        x = tolower(x);
     return answer;
 }
 
@@ -123,7 +123,8 @@ void updateSecretWord(string &secretWord, const char ch, const string &word)
 void updateEnteredChars(const char ch, string &chars)
 {
     // TODO: append the character ch is in end of the text chars
-    chars += (ch + " ");
+    chars += ch;
+    chars += " ";
 }
 
 /***
