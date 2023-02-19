@@ -1,30 +1,57 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
 using namespace std;
+
+int generateRandomNumber();
+int getPlayerGuess();
+void printAnswer(int number, int randomNumber);
+void playGuessIt();
+
+int main()
+{
+    srand(time(0));
+    char isContinued;
+    do {
+        playGuessIt();
+        cout << endl << "Do you want to play again (y/n) ?  ";
+        cin >> isContinued;
+    } while (isContinued == 'y' || isContinued == 'Y');
+    return 0;
+}
+
 int generateRandomNumber()
-{return rand()%100+1;}//nghi so
-//rand%(max-min+1)+min
+{
+    return rand() % 100 + 1;
+}
+
 int getPlayerGuess()
 {
-    int guess;
-    cout << endl << "Enter your Guess: ";
-    cin >> guess;
-    return guess;
-}
-
-void printAnswer(int guess, int secretNumber)
-{
-    if(guess > secretNumber){cout << "Your  number is too big !" << endl;}
-    else if(guess < secretNumber){cout << "Your number is too small!" << endl;}
-    else {cout << "Congratulation! You win.";}
-}
-int main()
-{   srand(time(0));
-    int num1 = generateRandomNumber();
     int number;
-    do {
-        number =  getPlayerGuess();
-        printAnswer(number,num1);
-    }while( number != num1);
-return 0;
+    cout << endl << "Enter your number between 1 and 100: ";
+    cin >> number;
+    return number;
 }
 
+void printAnswer(int number, int randomNumber)
+{
+    if (number > randomNumber) {
+        cout <<"Your number is higher." << endl;
+    } else if (number < randomNumber) {
+        cout <<"Your number is lower." << endl;
+    } else {
+        cout << "Congratulation! You win." << endl;
+    }
+}
+
+void playGuessIt()
+{
+    int randomNumber = generateRandomNumber();
+    int number;
+
+    do {
+        number = getPlayerGuess();
+        printAnswer(number, randomNumber);
+    } while (number != randomNumber);
+}
