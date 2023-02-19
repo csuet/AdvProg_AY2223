@@ -1,23 +1,22 @@
 #include <iostream>
 #include <cstdlib>
-#include <ctime>
 
 using namespace std;
 
 int generateRandomNumber();
 int getPlayerGuess();
 void printAnswer(int number, int randomNumber);
-void playGuessIt();
 
 int main()
 {
-    srand(time(0));
-    char isContinued;
+    int randomNumber = generateRandomNumber();
+    int number;
+
     do {
-        playGuessIt();
-        cout << endl << "Do you want to play again (y/n) ?  ";
-        cin >> isContinued;
-    } while (isContinued == 'y' || isContinued == 'Y');
+        number = getPlayerGuess();
+        printAnswer(number, randomNumber);
+    } while (number != randomNumber);
+
     return 0;
 }
 
@@ -43,15 +42,4 @@ void printAnswer(int number, int randomNumber)
     } else {
         cout << "Congratulation! You win." << endl;
     }
-}
-
-void playGuessIt()
-{
-    int randomNumber = generateRandomNumber();
-    int number;
-
-    do {
-        number = getPlayerGuess();
-        printAnswer(number, randomNumber);
-    } while (number != randomNumber);
 }
