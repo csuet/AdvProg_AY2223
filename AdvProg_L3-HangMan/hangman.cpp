@@ -6,6 +6,7 @@ using std::domain_error;
 using std::ifstream;
 using std::string;
 using std::vector;
+using namespace std;
 
 /***
     Args:
@@ -70,12 +71,11 @@ bool isCharInWord(const char ch, const string &word)
 string chooseWordFromList(const vector<string> &wordList, int index)
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
-    string answer;
-    for (int i = 0; i < wordlist[index].length(); i++)
+    string answer = wordList[index];
+    for (int i = 0; i < answer.length(); i++)
     {
-        wordList[index] = tolower(wordList[index]);
+        answer[i] = tolower(answer[i]);
     }
-    answer = wordList[index];
     return answer;
 }
 
@@ -89,7 +89,7 @@ string generateHiddenCharacters(string answerWord)
 {
     // TODO: Based on answerWord's length, generate hidden characters in form of "---"
     string secretWord;
-    for (int i = 0; i < answerWord; i++)
+    for (int i = 0; i < answerWord.length(); i++)
     {
         secretWord += '-';
     }
@@ -172,11 +172,11 @@ void processData(const char ch, const string &word,
     if (isCharInWord(ch, word) == 1)
     {
         updateSecretWord(secretWord, ch, word);
-        updateEnteredChars(ch, chars);
+        updateEnteredChars(ch, incorrectChars);
     }
     else
     {
         updateSecretWord(secretWord, ch, word);
-        updateEnteredChars(ch, chars);
+        updateEnteredChars(ch, incorrectChars);
     }
 }
