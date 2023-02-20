@@ -17,7 +17,7 @@ using std::cin;
 int generateRandomNumber(const int min, const int max)
 {
     // TODO: Return a random integer number between min and max
-    return rand()%(max-min+1)+min;
+    return ( rand()%(max-min+1) )+min;
 }
 
 vector<string> readWordListFromFile(const string& filePath)
@@ -68,10 +68,11 @@ bool isCharInWord(const char ch, const string& word)
 string chooseWordFromList(const vector<string>& wordList, int index) 
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
-    string answer;
-    for( int i=0;i<wordList.size();i++)
-    {
-        if( i==index ) answer=wordList[i];
+    string answer = wordList[index];
+    for (int i = 0; i < answer.length(); i++) {
+        if (answer[i] <= 'Z' && answer[i] >= 'A') {
+            answer[i] += 32;
+        }
     }
     return answer;
 }
