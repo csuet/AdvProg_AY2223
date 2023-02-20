@@ -1,38 +1,53 @@
 #include <iostream>
+#include <string>
+#include <cmath>
 
-using namespace std;
+using std::string;
+using std::cout;
+using std::endl;
+using std::stod;
 
-int main()
+
+double mySin(double x);
+double myCos(double x);
+double mySqrt(double x);
+
+/***
+    Args:
+        x (double): a number
+    Returns:
+        double: cosine of x
+***/
+double myCos(double x)
 {
-    int num1, num2;
-    char op;
+    return cos(x);
+}
 
-    cin >> num1 >> op >> num2;
-    switch (op)
-    {
-    case '+':
-        cout << num1 + num2 << endl;
-        break;
-    case '-':
-        cout << num1 - num2 << endl;
-        break;
-    case '*':
-        cout << num1 * num2 << endl;
-        break;
-    case '/':
-        if (num2 == 0)
-            cout << "Invalid divisor" << endl;
-        else
-            cout << num1 / num2 << endl;
-        break;
-    case '%':
-        if (num2 == 0)
-            cout << "Invalid divisor" << endl;
-        else
-            cout << num1 % num2 << endl;
-        break;
-    default:
-        cout << "Invalid operator" << endl;
+/***
+    Args:
+        x (double): a number
+    Returns:
+        double: sine of x
+***/
+double mySin(double x)
+{
+    return sin(x);
+}
+
+
+/***
+    Args:
+        x (double): a number
+    Returns:
+        double: square root of x
+***/
+double mySqrt(double x) {
+    if (x < 0) {
+        cout << "Invalid argument" << endl;
+        exit(1);
     }
-    return 0;
+	else
+	{
+		return sqrt(x);
+	}
 }
