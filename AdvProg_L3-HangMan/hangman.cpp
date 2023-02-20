@@ -117,6 +117,7 @@ void updateSecretWord(string &secretWord, const char ch, const string &word)
     if (word.find(ch) < secretWord.length())
     {
         secretWord[word.find(ch)] = ch;
+        word.erase(word.begin() + word.find(ch));
     }
 }
 
