@@ -1,4 +1,7 @@
 #include <iostream>
+#include<cstdlib>
+#include<ctime>
+#include<ctype.h>
 #include "hangman.h"
 
 using std::string;
@@ -17,7 +20,9 @@ using std::cin;
 int generateRandomNumber(const int min, const int max)
 {
     // TODO: Return a random integer number between min and max
-    return 1;
+    srand(time(NULL));
+    int number = rand() % (max-min+1)+min;
+    return number;
 }
 
 vector<string> readWordListFromFile(const string& filePath)
@@ -51,7 +56,12 @@ vector<string> readWordListFromFile(const string& filePath)
 bool isCharInWord(const char ch, const string& word)
 {
     // TODO: return true if ch is in word else return false
-    return true;
+    for (auto c : word)
+    {
+        if (ch == c)
+                return true;
+    }
+    return false;
 }
 
 /***
@@ -65,7 +75,11 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
     string answer;
-
+    answer = *(wordList.begin() + index);
+    for (auto &s : answer)
+    {
+        s = tolower(s);
+    }
     return answer;
 }
 
@@ -77,8 +91,11 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 ***/
 string generateHiddenCharacters(string answerWord){
     // TODO: Based on answerWord's length, generate hidden characters in form of "---"
-    string secretWord;
-
+    string secretWord=answerWord;
+    for (auto& c : secretWord)
+    {
+        c = '-';
+    }
     return secretWord;
 }
 
@@ -99,6 +116,18 @@ char getInputCharacter() {
 void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
     // TODO: Update the secret word if the character ch is in the answer word.
+    if (isCharInWord(ch, word))
+    {
+        int i = 0;
+        for (auto& x : word)
+        {
+            if (ch == x)
+            {
+                secretWord[i] = ch;
+            }
+            i++;
+        }
+    }
 }
 
 /***
@@ -110,6 +139,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 ***/
 void updateEnteredChars(const char ch, string& chars){
     // TODO: append the character ch is in end of the text chars
+    chars.push_back(ch);
 }
 
 /***
@@ -120,6 +150,7 @@ void updateEnteredChars(const char ch, string& chars){
 ***/
 void updateIncorrectGuess(int& incorrectGuess){
     // TODO: increase the value of incorrectGuess by 1
+    incorrectGuess++;
 }
 
 /***
@@ -146,5 +177,16 @@ void processData(const char ch, const string& word,
             update incorrectGuess: call updateIncorrectGuess() function
             update incorrectChars: call updateEnteredChars() function
     ***/
+    if (isCharInWord(ch, word))
+    {
+        updateSecretWord(secretWord, ch, word);
+        updateEnteredChars(ch, chars);
+    }
+    else
+    {
+        updateIncorrectGuess(incorrectGuess);
+        updateEnteredChars(ch, incorrectChars);
+    }
 }
+
 
