@@ -198,6 +198,6 @@ vector<string> filterWordsByMask(const vector<string> &words, const string &mask
     {
         if (wordConformToMask(x, mask, ch))
             answer.push_back(x);
-    }
+        }
     return answer;
 }
