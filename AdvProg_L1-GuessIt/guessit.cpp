@@ -29,7 +29,7 @@ bool checkSuccess(string answer) {
 
 
 bool checkContinuePlaying(char isContinued) {
-   if (isContinued=="Y" || isContinued=="y") return true;
+   if (isContinued=='y' || isContinued== 'Y') return true;
    return false;
 }
 
