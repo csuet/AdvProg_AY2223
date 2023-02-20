@@ -23,6 +23,8 @@ double myCos(double x)
     return cos(x);
 }
 
+//
+
 /***
     Args:
         x (double): a number
