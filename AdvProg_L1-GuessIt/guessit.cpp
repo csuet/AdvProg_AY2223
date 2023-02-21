@@ -3,7 +3,7 @@
 #include <ctime>
 #include "guessit.h"
 
-using std::string;
+using namespace std;
 /***
     Args:
         
@@ -25,9 +25,9 @@ int generateRandomNumber() {
 ***/
 int getPlayerGuess() {
     // TODO: Ask the player guest and return the player's number
-    std::cout << "What your number: ";
+    cout << "What your number: ";
     int guessNum;
-    std::cin >> guessNum;
+    cin >> guessNum;
     return guessNum;
 }
 
@@ -104,8 +104,8 @@ bool checkContinuePlaying(char isContinued) {
 char getPlayerOpinion() {
     // TODO: Ask the player about continue playing and return the player's choice
     char isContinued;
-    std::cout << "Game Over! Do you want to try again (y or n) ?" << std::endl;
-    std::cin >> isContinued;
+    cout << "Game Over! Do you want to try again (y or n) ?" << endl;
+    cin >> isContinued;
     return isContinued;
 }
 
