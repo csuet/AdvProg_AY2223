@@ -7,7 +7,7 @@ using namespace std;
 
 
 int generateRandomNumber() {
-    return rand() % 5 + 1;
+    return rand() % 100 + 1;
     
 }
 
@@ -54,10 +54,10 @@ bool checkContinuePlaying(char isContinued) {
 
 char getPlayerOpinion() {
     // TODO: Ask the player about continue playing and return the player's choice
-    cout << "m choi nx ko" << endl;
+    cout << "Do you want to continue playing? Y or N." << endl;
     string input;
     cin >> input;
-    if (input == "ok") {
+    if (input == "Y") {
     	return 'Y';
 	}
 	else {
@@ -78,7 +78,7 @@ void playGuessIt() {
     } while (!checkSuccess(answer));
 }
 
-int main() {
+int run() {
     srand(time(0));
     char isContinued;
     do {
