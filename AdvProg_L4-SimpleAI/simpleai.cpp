@@ -1,4 +1,5 @@
 #include "simpleai.h"
+
 int readMaxGuess()
 {
     int maxGuess;
@@ -6,6 +7,7 @@ int readMaxGuess()
     cin >> maxGuess;
     return maxGuess;
 }
+
 int readWordLen()
 {
     int wordLen;
@@ -14,6 +16,7 @@ int readWordLen()
     return wordLen;
     
 }
+
 /***
     Args:
         wordLen (int): The desired length of input word
@@ -39,10 +42,12 @@ vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
     Returns:
         answer (char) : The next character given the provided word is not in the vocabulary
 ***/
+
 char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
 {
     char answer;
-    // where is the provided word????
+    // "The next character given the provided word is not in the vocabulary"
+    // where is the provided word???
     return answer;
 }
 
@@ -52,6 +57,7 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
     Returns:
         answer (map) : The map which count the occurences of character in the set of candidate words
 ***/
+
 map<char, int> countOccurrences(const vector<string>& candidateWords)
 {
     map<char, int> answer;
@@ -71,6 +77,7 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
     Returns:
         answer (char) : The most frequent character
 ***/
+
 char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& selectedChars)
 {
     char answer;
@@ -106,6 +113,7 @@ string getWordMask(char nextChar)
     cin >> mask;
     return mask;
 }
+
 /***
     Args:
         ch (char): The predicted character by the AI
@@ -116,6 +124,7 @@ string getWordMask(char nextChar)
 
 bool isCorrectChar(char ch, const string& mask)
 {
+    //Write your code here
     return isCharInWord(ch, mask);
 }
 
