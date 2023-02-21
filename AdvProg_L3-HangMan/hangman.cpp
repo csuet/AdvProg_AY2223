@@ -49,8 +49,7 @@ vector<string> readWordListFromFile(const string& filePath)
     Returns:
         result (bool) : the character ch is in the word or not.
 ***/
-bool isCharInWord(const char ch, const string& word)
-{
+bool isCharInWord(const char ch, const string& word) {
     // TODO: return true if ch is in word else return false
     for (char c : word) if (c == ch) return 1;
     return 0;
@@ -118,8 +117,8 @@ void updateSecretWord(string& secretWord, const char ch, const string& word) {
 ***/
 void updateEnteredChars(const char ch, string& chars) {
     // TODO: append the character ch is in end of the text chars
-    chars.append(1, ch);
-    chars.append(1, ' ');
+    chars += ch;
+    chars += ' ';
 }
 
 /***
