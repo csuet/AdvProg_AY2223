@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-//#include "guessit.h"
+#include "guessit.h"
 
 using namespace std;
 
@@ -118,7 +118,8 @@ void playGuessIt() {
     } while (!checkSuccess(answer));
 }
 
-int main() {
+
+int run() {
     srand(time(0));
     char isContinued;
     do {
