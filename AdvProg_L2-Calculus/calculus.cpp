@@ -20,18 +20,50 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    double accurcy = 0.001;
+    double cosx, cosval;
+    double denominator;
+    cosx = 1;
+    double temp = 1;
+    int i = 1;
+    do
+    {
+        denominator = (2 * i) * (2 * i - 1);
+        cosval = cosx;
+        temp = -temp * x * x / denominator;
+        cosx = cosx + temp;
+        i++;
+    } 
+    while (fabs(cosx - cosval) >= accurcy);
+    
+    return cosx;
 }
 
 /***
     Args:
         x (double): a number
     Returns:
-        double: sine of x
+        double: cosine of x
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double accurcy = 0.001;
+    double sinx, sinval;
+    double denominator;
+    sinx = x;
+    double temp = x;
+    int i = 1;
+    do
+    {
+        denominator = (2 * i) * (2 * i + 1);
+        sinval = sinx;
+        temp = -temp * x * x / denominator;
+        sinx = sinx + temp;
+        i++;
+    } 
+    while (fabs(sinx - sinval) >= accurcy);
+
+    return sinx;
 }
 
 
@@ -46,7 +78,25 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
+    double saiso = 0.001;
+    double result = 0;
+    double pre_result = 10;
 
-    
-    return 0;
+    do
+    {
+        result = pre_result - ((pre_result * pre_result - x) / (2.0 * pre_result));
+        if (fabs(result - pre_result) < saiso)
+        {
+            //End loop
+            break;
+        }
+        else
+        {
+            //Continue Loop
+            pre_result = result;
+            continue;
+        }
+    } while (true);
+
+    return result;
 }
