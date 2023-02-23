@@ -90,6 +90,8 @@ string chooseWordFromList(const vector<string>& wordList, int index)
             if (temp[i] >= 'a' && temp[i] <= 'z') 
                 answer[i] = temp[i];
 
+    answer += '\0';
+    
     return answer;
 }
 
