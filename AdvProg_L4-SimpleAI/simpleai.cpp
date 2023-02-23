@@ -1,5 +1,7 @@
 #include "simpleai.h"
+#include<algorithm>
 
+using std::count;
 int readMaxGuess()
 {
     int maxGuess;
