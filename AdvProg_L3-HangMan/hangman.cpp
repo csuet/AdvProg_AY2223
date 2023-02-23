@@ -117,7 +117,6 @@ void updateSecretWord(string &secretWord, const char ch, const string &word)
     if (word.find(ch) < secretWord.length())
     {
         secretWord[word.find(ch)] = ch;
-        word.erase(word.begin() + word.find(ch));
     }
 }
 
@@ -132,6 +131,7 @@ void updateEnteredChars(const char ch, string &chars)
 {
     // TODO: append the character ch is in end of the text chars
     chars += ch;
+    chars += ' ';
 }
 
 /***
