@@ -139,11 +139,6 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
             //If ch in secretWord, update secret word
             secretWord[i] = ch;
         }
-        else
-        {
-            //No word not show up
-            secretWord[i] = '-';
-        }
 }
 
 /***
