@@ -68,54 +68,54 @@ double hamso(string op , double number){
         }
     }
 }
-double cal(double num1 , double num2 , char op){
-    switch (op) {
-        case '+' : {
-            return num1 + num2 ;
-        }
-        case '-' : {
-            return num1 - num 2 ; 
-        }
-        case '*' : {
-            return num1 * num 2 ; 
-        }
-        case '/' : {
-            if ( num2 == 0) {
-                cout << "Invalid divisor" <<endl ;
-                exit(1) ;
-            }
-            else {
-                return num1 / num 2 ;
-            }
-        }
-        // case '%' : {
-        //     if ( num2 == 0) {
-        //         cout << "Invalid divisor" <<endl ;
-        //         exit(1) ;
-        //     }
-        //     else {
-        //         return num1 % num 2 ;
-        //     }
-        // }
-        default : {
-            cout << "Invalib operator" << endl ;
-            exit(1) ;
-        }
-    }
-}
+// double cal(double num1 , double num2 , char op){
+//     switch (op) {
+//         case '+' : {
+//             return num1 + num2 ;
+//         }
+//         case '-' : {
+//             return num1 - num 2 ; 
+//         }
+//         case '*' : {
+//             return num1 * num 2 ; 
+//         }
+//         case '/' : {
+//             if ( num2 == 0) {
+//                 cout << "Invalid divisor" <<endl ;
+//                 exit(1) ;
+//             }
+//             else {
+//                 return num1 / num 2 ;
+//             }
+//         }
+//         // case '%' : {
+//         //     if ( num2 == 0) {
+//         //         cout << "Invalid divisor" <<endl ;
+//         //         exit(1) ;
+//         //     }
+//         //     else {
+//         //         return num1 % num 2 ;
+//         //     }
+//         // }
+//         default : {
+//             cout << "Invalib operator" << endl ;
+//             exit(1) ;
+//         }
+//     }
+// }
 int main(int argc ,char* argv[]){
-    if ( argc == 3){
+    //if ( argc == 3){
         string op = argv[1] ;
         double number = atoi(argv[2]) ;
         cout << hamso(op, number) ;
         return 0 ;
-    }
-    else {
-        double num1 , num2 ;
-        char op ; 
-        num1 = atoi(argv[1]) ;
-        op = argv[2][0] ;
-        num2 = atoi(argv[3]) ;
-        cout << cal(num1 , num2 , op) << endl ;
-    }
+    //}
+    // else {
+    //     double num1 , num2 ;
+    //     char op ; 
+    //     num1 = atoi(argv[1]) ;
+    //     op = argv[2][0] ;
+    //     num2 = atoi(argv[3]) ;
+    //     cout << cal(num1 , num2 , op) << endl ;
+    // }
 }
