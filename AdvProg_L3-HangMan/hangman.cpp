@@ -86,9 +86,9 @@ string chooseWordFromList(const vector<string>& wordList, int index)
     for (int i = 0; i < lgnth; i++)
     {
         if (temp[i] >= 'A' && temp[i] <= 'Z') 
-            answer[i] = temp[i] + int('a' - 'A');
+            answer += temp[i] + int('a' - 'A');
         if (temp[i] >= 'a' && temp[i] <= 'z') 
-                answer[i] = temp[i];
+                answer += temp[i];
     }
     return answer;
 }
