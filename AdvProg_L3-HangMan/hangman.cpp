@@ -59,7 +59,7 @@ bool isCharInWord(const char ch, const string& word)
     else {
         return false;
     }
-
+}
 /***
     Args:
         wordList (vector<string>): A list of words
@@ -67,7 +67,7 @@ bool isCharInWord(const char ch, const string& word)
     Returns:
         answer (string) : the lowercase word is in the position index of wordList
 ***/
-string chooseWordFromList(const vector<string>& wordList, int index) 
+string chooseWordFromList(const vector<string>& wordList, int index)
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
     string answer;
@@ -84,7 +84,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
     Returns:
         secretWord (string): answerWord in hidden form (form of ---)
 ***/
-string generateHiddenCharacters(string answerWord){
+string generateHiddenCharacters(string answerWord) {
     // TODO: Based on answerWord's length, generate hidden characters in form of "---"
     string secretWord = "";
     int l = answerWord.length();
@@ -97,7 +97,7 @@ string generateHiddenCharacters(string answerWord){
 char getInputCharacter() {
     char ch;
     cin >> ch;
-    return tolower(ch); 
+    return tolower(ch);
 }
 
 /***
@@ -153,10 +153,10 @@ void updateIncorrectGuess(int& incorrectGuess){
     Returns:
         void
 ***/
-void processData(const char ch, const string& word, 
-                string& secretWord, 
-                string& correctChars, 
-                int& incorrectGuess, string& incorrectChars)
+void processData(const char ch, const string& word,
+    string& secretWord,
+    string& correctChars,
+    int& incorrectGuess, string& incorrectChars)
 {
     /*** TODO
         If ch in word:
