@@ -56,7 +56,7 @@ bool isCharInWord(const char ch, const string& word)
 {
     // TODO: return true if ch is in word else return false
     for(int i = 0; i < word.length(); i++){
-        if (word[i] == char){
+        if (word[i] == ch){
             return true;
             break;
         }
@@ -169,7 +169,7 @@ void processData(const char ch, const string& word,
             update incorrectChars: call updateEnteredChars() function
     ***/
    secretWord = generateHiddenCharacters(word);
-   if(isCharInWord(ch) == true){
+   if(isCharInWord(ch, word) == true){
         updateSecretWord(secretWord, ch, word);
         updateEnteredChars(ch, correctChars);
    }
