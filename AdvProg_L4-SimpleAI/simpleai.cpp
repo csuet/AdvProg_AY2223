@@ -27,11 +27,14 @@ int readWordLen()
 vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
 {
     vector<string> answer;
-    //Write your code here
-    for( int i=0;i<vocabulary.size();i++)
+    for (auto it : vocabulary)
     {
-        if( vocabulary[i].size()==wordLen ) answer.push_back(vocabulary[i]);
+        if ((int)it.size() == wordLen)
+        {
+            answer.push_back(it);
+        }
     }
+    //Write your code here
     return answer;
 }
 
@@ -67,14 +70,14 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
 map<char, int> countOccurrences(const vector<string>& candidateWords)
 {
     map<char, int> answer;
-    //Write your code here
-    for( int i=0;i<candidateWords.size();i++)
+    for (int i = 0; i < (int)candidateWords.size(); i++)
     {
-        for( int j=0;j<candidateWords[i].size();i++)
+        for (int j = 0;j < (int)candidateWords[i].size(); j++)
         {
             answer[candidateWords[i][j]]++;
         }
     }
+    //Write your code here
     return answer;
 }
 
@@ -117,8 +120,7 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
 {
     char answer;
     //Write your code here
-    map<char,int> hash=countOccurrences(candidateWords);
-    answer = findMostFrequentChar(hash,selectedChars);
+   answer = findMostFrequentChar(countOccurrences(candidateWords), selectedChars);
     return answer;
 }
 
@@ -144,14 +146,14 @@ bool isCorrectChar(char ch, const string& mask)
     bool answer;
     //Write your code here
     answer=false;
-    for( int i=0;i<mask.size();i++)
+     for (int i = 0; i < (int)mask.size(); i++)
     {
-        if( mask[i] == ch )
+        if (ch == mask[i])
         {
-            answer = true;
+            return true;
         }
     }
-    return answer;
+    return false;
 }
 
 /***
@@ -164,17 +166,15 @@ bool isCorrectChar(char ch, const string& mask)
 ***/
 bool isWholeWord(const string& mask)
 {
-     bool answer;
     //Write your code here
-    answer=true;
-    for( int i=0;i<mask.size();i++)
-    {
-        if( mask[i] == '_' || mask[i] == '-' )
-        {
-            answer=false;
-        }
-    }
-    return answer;
+    for (int i = 0; i < (int)mask.size(); i++)
+     {
+         if (mask[i] == '_' || mask[i]=='-')
+         {
+             return false;
+         }
+     }
+    return true;
 }
 
 /***
