@@ -30,7 +30,7 @@ vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
     //Write your code here
     for (auto word : vocabulary)
     {
-        if (word.length() == wordLen) answer.push_back(i);
+        if (word.length() == wordLen) answer.push_back(word);
     }
     return answer;
 }
@@ -85,7 +85,7 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
     char answer;
     //Write your code here
     int maxOccurrences = 0;
-    for (auto it = occurrences.begin(), it != occurrences.end(); it++)
+    for (auto it = occurrences.begin(); it != occurrences.end(); it++)
     {
         if (it->second > maxOccurrences && selectedChars.find(it->first) == selectedChars.end())
         {
@@ -179,7 +179,7 @@ bool wordConformToMask(const string& word, const string& mask, char ch)
     bool answer;
     //Write your code here
     answer = true;
-    for (auto i = mask.begin(); i != mask.end(); i++)
+    for (size_t i = 0; i < mask.length(); i++)
     {
         if (mask[i] != '-' && mask[i] != word[i]) answer = false;
     }
