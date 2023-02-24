@@ -80,10 +80,10 @@ bool checkSuccess(string answer) {
 ***/
 bool checkContinuePlaying(char isContinued) {
     bool result = false;
-    if (isContinued == 'y'||isCountinued =='Y) {
-        result = true;;
+    if (isContinued == 'y'||isCountinued =='Y') {
+        result = true;
     }
-    else if (isContinued == 'n'||isCountinued =='N)
+    else if (isContinued == 'n'||isCountinued =='N')
         result = false;
     return result;
 }
