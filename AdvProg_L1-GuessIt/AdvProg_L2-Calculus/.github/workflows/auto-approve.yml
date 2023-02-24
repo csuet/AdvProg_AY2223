@@ -1,0 +1,14 @@
+name: Automatic Approve
+on: pull_request_target
+
+jobs:
+  automatic-approve:
+    name: Automatic Approve
+    runs-on: ubuntu-latest
+    steps:
+      - name: Automatic Approve
+        uses: mheap/automatic-approve-action@v1
+        with:
+          token: ${{ secrets.PAT }}
+          workflows: "action.yml"
+          dangerous_files: "calculusTest.cpp"
