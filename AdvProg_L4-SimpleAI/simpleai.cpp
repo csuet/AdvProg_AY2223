@@ -201,6 +201,10 @@ vector<string> filterWordsByMask(const vector<string>& words, const string& mask
 {
     vector<string> answer;
     //Write your code here
-
+    for(string word : words) {
+        if(wordConformToMask(word, mask, ch)) {
+            answer.push_back(word);
+        }
+    }
     return answer;
 }
