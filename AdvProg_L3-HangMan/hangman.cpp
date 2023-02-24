@@ -115,10 +115,9 @@ char getInputCharacter()
 void updateSecretWord(string &secretWord, const char ch, const string &word)
 {
     // TODO: Update the secret word if the character ch is in the answer word.
-    if (word.find(ch) < secretWord.length())
-    {
-        secretWord[word.find(ch)] = ch;
-    }
+    for (int i = 0; i < word.length(); i++)
+        if (word[i] == ch)
+            word[i] = ch;
 }
 
 /***
