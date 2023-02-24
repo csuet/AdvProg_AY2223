@@ -16,7 +16,7 @@ using std::cin;
 ***/
 int generateRandomNumber(const int min, const int max)
 {
-    return rand() %max + min;
+    return rand() % max + (min + 1);
 }
 
 vector<string> readWordListFromFile(const string& filePath)
@@ -72,7 +72,11 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 	
     // TODO: Return a lowercase word in the index position of the vector wordList.
     string answer;
-	answer = tolower(wordList[index]);
+    int L = (wordList[index]).length();
+	for (int i = 0 ; i < L ; i++)
+	{
+		answer += tolower((wordList[index])[i]);
+	}
     return answer;
 }
 
@@ -87,7 +91,7 @@ string generateHiddenCharacters(string answerWord){
     
     string secretWord;
 	for (int i = 0 ; i < (int)answerWord.size() ; i++){
-		secretWord += "-";
+		secretWord += '-';
 	}
     return secretWord;
 }
@@ -109,13 +113,8 @@ char getInputCharacter() {
 void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
     // TODO: Update the secret word if the character ch is in the answer word.
-    
-    for (auto x : word)
-    {
-    	if (ch == x) x == "+";
-	}
 	for (int i = 0 ; i < (int)word.length() ; i++){
-		if (word[i] == "+")
+		if (word[i] == ch)
 		{
 			secretWord[i] = ch;
 		}
@@ -131,7 +130,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 ***/
 void updateEnteredChars(const char ch, string& chars){
     // TODO: append the character ch is in end of the text chars
-    chars += 'ch';
+    chars += ch;
 }
 
 /***
@@ -169,8 +168,19 @@ void processData(const char ch, const string& word,
             update incorrectGuess: call updateIncorrectGuess() function
             update incorrectChars: call updateEnteredChars() function
     ***/
+    bool check = 0;
     for (auto x : word){
-    	if (ch == x) updateSecretWord();
+    	if (x == ch) {
+            check = 1;
+		}
 	}
+    if (check) {
+        updateSecretWord(secretWord, ch, word);
+    	updateEnteredChars(ch,  correctChars);
+    }
+    else {
+        updateIncorrectGuess(incorrectGuess);
+		updateEnteredChars(ch, incorrectChars);
+    }
 }
 
