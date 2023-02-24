@@ -58,12 +58,10 @@ char getPlayerOpinion() {
     cout << "Do you want to continue playing? Y or N." << endl;
     string input;
     cin >> input;
-    if (input == "Y") {
-    	return 'Y';
-	}
-	else {
-		return 'N';
-	}
+    if (input == "Y") return 'Y';
+	else if (input == "y") return 'Y';
+    else if (input == "N") return 'N';
+    else  (input == "n") return 'N';
 }
 
 
