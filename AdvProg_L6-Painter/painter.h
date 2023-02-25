@@ -37,7 +37,7 @@ class Painter
     public:
     Painter();
 	Painter(SDL_Window* window, SDL_Renderer *renderer);
-        void setColor(SDL_Color color_);
+        void setColor(SDL_Color color);
         SDL_Color getColor() { return color; }
         void setPosition(int x, int y) { this->x = x; this->y = y; }
         int getX() { return x; }
