@@ -6,10 +6,12 @@
     Returns:
         None
 ***/
-void Painter::setColor(SDL_Color color_) 
+void Painter::setColor(SDL_Color color) 
 { 
     // TODO: set the color value for the Painter and set Render Draw Color
-    color = color_;
+    SDL_SetRenderDrawColor(renderer,
+                   color.r, color.g, color.b,
+                   color.a);
 }
 
 
