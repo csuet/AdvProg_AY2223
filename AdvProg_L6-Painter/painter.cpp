@@ -73,7 +73,10 @@ void Painter::turnRight(double degree)
 void Painter::randomColor()
 {
     // TODO: set random color    
-    color = {rand()%256, rand()%256, rand()%256};
+    int r=rand() % 256;
+    int g=rand() % 256;
+    int b=rand() % 256;
+    color = {r, g, b};
 }
 
 
