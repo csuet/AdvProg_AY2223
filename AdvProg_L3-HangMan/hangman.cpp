@@ -1,8 +1,8 @@
 #include <iostream>
 #include <ctime>
 #include <stdlid.h>
-//#include "hangman.h"
-using namespace std ;
+#include "hangman.h"
+
 using std::string;
 using std::vector;
 using std::ifstream;
