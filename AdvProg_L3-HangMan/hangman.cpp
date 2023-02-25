@@ -1,6 +1,6 @@
 #include <iostream>
 #include <ctime>
-#include <stdlid.h>
+#include <stdlib.h>
 #include "hangman.h"
 
 using std::string;
