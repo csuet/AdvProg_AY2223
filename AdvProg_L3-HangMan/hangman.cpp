@@ -9,8 +9,7 @@ using std::cin;
 
 int generateRandomNumber(const int min, const int max)
 {
-    srand(time(NULL)) ;
-    int randomNum = rand() % max + min ;
+    int randomNum = rand() % (max - min + 1) + min ;
     return randomNum ;
 }
 
@@ -39,7 +38,7 @@ bool isCharInWord(const char ch, const string& word)
 {
     for(int i=0 ; i<word.length() ; i++)
     {
-        if(word[i] == ch)
+        if(tolower(word[i]) == tolower(ch)) ;
         {
             return true;
         }
@@ -75,7 +74,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 }
 
 void updateEnteredChars(const char ch, string& chars){
-    chars += ch ;
+    chars += tolower(ch) ;
 }
 
 void updateIncorrectGuess(int& incorrectGuess){
