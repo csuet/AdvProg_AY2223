@@ -9,6 +9,7 @@ using std::cin;
 
 int generateRandomNumber(const int min, const int max)
 {
+    srand(time(NULL)) ;
     int randomNum = rand() % (max - min + 1) + min ;
     return randomNum ;
 }
@@ -38,7 +39,7 @@ bool isCharInWord(const char ch, const string& word)
 {
     for(int i=0 ; i<word.length() ; i++)
     {
-        if(tolower(word[i]) == tolower(ch)) ;
+        if(tolower(word[i]) == tolower(ch))
         {
             return true;
         }
