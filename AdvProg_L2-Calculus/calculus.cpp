@@ -11,16 +11,6 @@ using std::stod;
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
-double factorial(int n);
-double factorial(int n)
-{
-    if (n == 0)
-        return 1;
-    if (n == 1)
-        return 1;
-    return n * factorial(n - 1);
-}
-
 /***
     Args:
         x (double): a number
@@ -30,13 +20,15 @@ double factorial(int n)
 double myCos(double x) 
 {
     double cos=1;
-    double precos;
-    int n = 2;
+    double precos=0;
+    double temp = 1;
+    int n = 1;
     while (abs(cos - precos) > 0.000001)
     {
+        temp = temp * x * x * (-1) / n / (n + 1);
         precos = cos;
-        cos = precos + pow(-1, n / 2) * pow(x, n) / factorial(n);
-        n = n + 2;
+        cos +=temp;
+        n +=2;
     }
     return cos;
 }
@@ -49,17 +41,20 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    double sin = 0;
-    double presin=1;
-    int n = 1;
-    while (abs(sin- presin) > 0.000001)
+    double sin = x;
+    double presin = 0;
+    double temp = x;
+    int n = 2;
+    while (abs(sin - presin) > 0.000001)
     {
+        temp = temp * x * x * (-1) / n / (n + 1);
         presin = sin;
-        sin = presin + pow(-1, (n-1) / 2) * pow(x, n) / factorial(n);
-        n = n + 2;
+        sin += temp;
+        n += 2;
     }
     return sin;
 }
+
 
 
 /***
