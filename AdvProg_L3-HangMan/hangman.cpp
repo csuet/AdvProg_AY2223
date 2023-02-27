@@ -19,7 +19,7 @@ int generateRandomNumber(const int min, const int max)
     // TODO: Return a random integer number between min and max
     int number;
 
-    cin >> number;
+    number = rand()%(min + max -1)%max;
 
     return number;
 }
