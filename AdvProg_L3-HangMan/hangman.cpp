@@ -1,33 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Codespaces
-Marketplace
-Explore
- 
-@vuniem131104 
-GlowCheese
-/
-AdvProg_AY2223
-Public
-forked from csuet/AdvProg_AY2223
-Fork your own copy of GlowCheese/AdvProg_AY2223
-Code
-Pull requests
-Actions
-Projects
-Security
-Insights
-AdvProg_AY2223/AdvProg_L3-HangMan/hangman.cpp
-
-GlowCheese Bug fixed
-…
-Latest commit f6de936 2 weeks ago
- History
- 1 contributor
-161 lines (145 sloc)  4.23 KB
-
 #include <iostream>
 #include "hangman.h"
 
@@ -47,8 +17,7 @@ using std::cin;
 int generateRandomNumber(const int min, const int max)
 {
     // TODO: Return a random integer number between min and max
-
-    return (rand() % (max - min + 1)) + min;
+    return min + rand() % (max - min + 1);
 }
 
 vector<string> readWordListFromFile(const string& filePath)
@@ -60,10 +29,10 @@ vector<string> readWordListFromFile(const string& filePath)
         throw domain_error("Unable to open file");
     }
 
-    //while ( getline (wordFile, word) ){  // Thong thuong doc tung line. 
-                                           // Chuong trinh nay cung chay.
+    //while ( getline (wordFile, word) ){  // Thong thuong doc tung line.
+    // Chuong trinh nay cung chay.
     while (wordFile >> word) {  // Nhung voi chuong trinh nay, doc tung word cung duoc
-                                // Tuc ca 2 cach doc deu chay.
+        // Tuc ca 2 cach doc deu chay.
         wordList.push_back(word);
         //cout << word << '\n';
     }
@@ -81,7 +50,10 @@ vector<string> readWordListFromFile(const string& filePath)
 ***/
 bool isCharInWord(const char ch, const string& word)
 {
-    return word.find(ch) != string::npos;
+    // TODO: return true if ch is in word else return false
+    for (char character : word)
+        if (character == ch) return true;
+    return false;
 }
 
 /***
@@ -91,15 +63,22 @@ bool isCharInWord(const char ch, const string& word)
     Returns:
         answer (string) : the lowercase word is in the position index of wordList
 ***/
-string chooseWordFromList(const vector<string>& wordList, int index) 
+bool isUpperCase(const char& ch)
+{
+    return ch>='A' && ch<='Z';
+}
+void toLower(string& word)
+{
+    for (char &character : word)
+        if (isUpperCase(character)) 
+            character = tolower(character); 
+}
+string chooseWordFromList(const vector<string>& wordList, int index)
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
-    string result = wordList[index];
-    for (int i = 0; result[i]; i++) {
-        result[i] = tolower(result[i]);
-    }
-
-    return result;
+    string answer =  wordList[index];
+    toLower(answer);
+    return answer;
 }
 
 /***
@@ -108,15 +87,18 @@ string chooseWordFromList(const vector<string>& wordList, int index)
     Returns:
         secretWord (string): answerWord in hidden form (form of ---)
 ***/
-string generateHiddenCharacters(string answerWord){
+string generateHiddenCharacters(string answerWord) {
     // TODO: Based on answerWord's length, generate hidden characters in form of "---"
-    return string(answerWord.size(), '-');
+    string secretWord;
+    for (int id=0;id<(int)answerWord.size();id++)
+        secretWord.push_back('-');
+    return secretWord;
 }
 
 char getInputCharacter() {
     char ch;
     cin >> ch;
-    return tolower(ch); 
+    return tolower(ch);
 }
 
 /***
@@ -129,9 +111,10 @@ char getInputCharacter() {
 ***/
 void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
-    for (int i = 0; word[i]; i++) {
-        if (word[i] == ch) secretWord[i] = ch;
-    }
+    // TODO: Update the secret word if the character ch is in the answer word.
+        for (int i = 0 ; i <int(word.size());i++)
+            if (word[i] == ch)
+                secretWord[i] = ch;
 }
 
 /***
@@ -141,9 +124,10 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
     Returns:
         void
 ***/
-void updateEnteredChars(const char ch, string& chars){
-    chars += ch;
-    chars += ' ';
+void updateEnteredChars(const char ch, string& chars) {
+    // TODO: append the character ch is in end of the text chars
+    chars.push_back(ch);
+    if (int(chars.size())>0) chars.push_back(' ');
 }
 
 /***
@@ -152,7 +136,8 @@ void updateEnteredChars(const char ch, string& chars){
     Returns:
         void
 ***/
-void updateIncorrectGuess(int& incorrectGuess){
+void updateIncorrectGuess(int& incorrectGuess) {
+    // TODO: increase the value of incorrectGuess by 1
     incorrectGuess++;
 }
 
@@ -167,11 +152,21 @@ void updateIncorrectGuess(int& incorrectGuess){
     Returns:
         void
 ***/
-void processData(const char ch, const string& word, 
-                string& secretWord, 
-                string& correctChars, 
-                int& incorrectGuess, string& incorrectChars)
+void processData(const char ch, const string& word,
+                 string& secretWord,
+                 string& correctChars,
+                 int& incorrectGuess, string& incorrectChars)
 {
+    if (isCharInWord(ch,word)) 
+        {
+            updateSecretWord(secretWord,ch,word);
+            updateEnteredChars(ch,correctChars);
+        }
+    else 
+    {
+        updateIncorrectGuess(incorrectGuess);
+        updateEnteredChars(ch,incorrectChars);
+    }
     /*** TODO
         If ch in word:
             update secretWord: call updateSecretWord() function
@@ -180,27 +175,4 @@ void processData(const char ch, const string& word,
             update incorrectGuess: call updateIncorrectGuess() function
             update incorrectChars: call updateEnteredChars() function
     ***/
-    if (isCharInWord(ch, word)) {
-        updateSecretWord(secretWord, ch, word);
-        updateEnteredChars(ch, correctChars);
-    } else {
-        updateIncorrectGuess(incorrectGuess);
-        updateEnteredChars(ch, incorrectChars);
-    }
 }
-
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-AdvProg_AY2223/hangman.cpp at master · GlowCheese/AdvProg_AY2223
