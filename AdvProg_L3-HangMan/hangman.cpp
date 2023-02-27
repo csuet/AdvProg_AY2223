@@ -17,9 +17,9 @@ using std::cin;
 int generateRandomNumber(const int min, const int max)
 {
     // TODO: Return a random integer number between min and max
-    int number = rand()%max;
+    int number;
 
-    while(number < min) number = (number + min)%max;
+    cin >> number;
 
     return number;
 }
