@@ -4,7 +4,7 @@
 #include "guessit.h"
 
 using namespace std; 
-const int minNumber=0;
+const int minNumber=1;
 const int maxNumber=100;
 
 
@@ -51,7 +51,7 @@ string getAnswer(int number, int randomNumber) {
     string answer;
     if (number>randomNumber) answer="Your number is higher.";
     else if (number<randomNumber) answer="Your number is lower.";
-    else answer="Congraluation! You win.";
+    else answer="Congratulation! You win.";
 
     return answer;
 }
@@ -65,7 +65,7 @@ string getAnswer(int number, int randomNumber) {
 ***/
 bool checkSuccess(string answer) {
     // TODO: return the result after checking that player guessed right or wrong
-    if (ans=="Congralution! You win.")
+    if (ans=="Congratulation! You win.")
         return true;
     return false;
 }
