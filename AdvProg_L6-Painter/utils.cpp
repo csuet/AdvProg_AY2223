@@ -19,7 +19,7 @@ void logSDLError(std::ostream& os, const std::string &msg)
 }
 
 void initSDL(SDL_Window **window, SDL_Renderer **renderer) {
-    if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
+    if (SDL_Init(SDL_INIT_VIDEO) != 0) {
 		logSDLError(std::cout, "SDL_Init");
 		exit(1);
 	}

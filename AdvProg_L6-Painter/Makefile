@@ -1,6 +1,3 @@
-sudo apt-get remove --purge libsdl2-dev
-sudo apt-get install libsdl2-dev
-
 LIBFLAGS = -lSDL2 -lSDL2_image
 all:
 	g++ -std=c++17 -c utils.cpp $(LIBFLAGS)
