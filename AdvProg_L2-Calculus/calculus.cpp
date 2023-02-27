@@ -13,14 +13,14 @@ double myCos(double x);
 double mySqrt(double x);
 
 /***
-    Args:
-        x (double): a number
-    Returns:
-        double: cosine of x
+Args:
+        x (gấp đôi): một số
+    Trả lại:
+        Double: cosin của x
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    return cos(x);
 }
 
 /***
@@ -31,7 +31,7 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    return sin(x);
 }
 
 
@@ -46,7 +46,7 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
     
-    return 0;
+    
+    return sqrt(x);
 }
