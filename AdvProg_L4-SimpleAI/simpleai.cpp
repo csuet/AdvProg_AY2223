@@ -49,7 +49,7 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
 {
     char answer;
     //Write your code here
-    answer = selectedChars.begin();
+    answer = *selectedChars.begin();
     return answer;
 }
 
@@ -179,7 +179,7 @@ bool wordConformToMask(const string& word, const string& mask, char ch)
     //Write your code here
     if (isCorrectChar(ch,mask))
     {
-        if (mask in word) answer = true;
+        if ((mask in word)) answer = true;
     }
     return answer;
 }
