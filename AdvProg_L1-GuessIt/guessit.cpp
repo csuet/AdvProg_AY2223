@@ -116,7 +116,6 @@ void playGuessIt() {
     int randomNumber = generateRandomNumber();
     int number;
     string answer;
-    
     do {
         number = getPlayerGuess();
         answer = getAnswer(number, randomNumber);
@@ -124,7 +123,7 @@ void playGuessIt() {
     } while (!checkSuccess(answer));
 }
 
-int main(){
+int run(){
     //srand(time(0));
     char isContinued;
     do {
