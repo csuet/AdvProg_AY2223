@@ -3,7 +3,9 @@
 #include <ctime>
 #include "guessit.h"
 
-using namespace std;
+using namespace std; 
+const int minNumber=0;
+const int maxNumber=100;
 
 
 /***
