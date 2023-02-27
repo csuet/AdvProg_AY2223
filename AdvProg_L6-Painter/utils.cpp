@@ -55,7 +55,7 @@ void waitUntilKeyPressed()
 {
 	SDL_Event e;
 	bool keyPressed = false;
-	while (!keyPressed) {
+	while (!keyPressed) {	
 		if (SDL_WaitEvent(&e) != 0) {
 			if (e.type == SDL_KEYDOWN) {
 				keyPressed = true;
