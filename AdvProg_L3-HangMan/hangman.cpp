@@ -51,7 +51,7 @@ vector<string> readWordListFromFile(const string& filePath)
 bool isCharInWord(const char ch, const string& word)
 {
     // TODO: return true if ch is in word else return false
-    for( int i=0;i<word.size();i++)
+    for( int i=0;i<(int)word.size();i++)
     {
         if( ch==word[i] ) return true;
     }
@@ -69,7 +69,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
     string answer = wordList[index];
-    for (int i = 0; i < answer.length(); i++) {
+    for (int i = 0; i < (int)answer.length(); i++) {
         if (answer[i] <= 'Z' && answer[i] >= 'A') {
             answer[i] += 32;
         }
@@ -106,7 +106,7 @@ char getInputCharacter() {
 void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
     // TODO: Update the secret word if the character ch is in the answer word.
-    for( int i=0;i<word.size();i++)
+    for( int i=0;i<(int)word.size();i++)
     {
         if( ch==word[i] ) secretWord[i]=ch;
     }
