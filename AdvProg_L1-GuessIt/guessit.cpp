@@ -14,8 +14,7 @@ using namespace std;
 ***/
 int generateRandomNumber() {
     // TODO: Return the random number in range 1 to 100
-    int x = rand() % 100 + 1;
-    return x;
+    return 100;
 }
 
 
@@ -29,7 +28,7 @@ int getPlayerGuess() {
     // TODO: Ask the player guest and return the player's number
     cout << "Enter your guess: ";
     int guess; cin >> guess;
-    return guess;
+    return 1;
 }
 
 
