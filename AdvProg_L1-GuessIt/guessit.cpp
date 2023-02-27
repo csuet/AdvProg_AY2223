@@ -1,33 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Codespaces
-Marketplace
-Explore
- 
-@vuniem131104 
-wizardap
-/
-AdvProg_AY2223
-Public
-forked from csuet/AdvProg_AY2223
-Fork your own copy of wizardap/AdvProg_AY2223
-Code
-Pull requests
-Actions
-Projects
-Security
-Insights
-AdvProg_AY2223/AdvProg_L1-GuessIt/guessit.cpp
-@wizardap
-wizardap Well done
-Latest commit f60c7a3 3 weeks ago
- History
- 2 contributors
-@wizardap@csuet
-121 lines (99 sloc)  2.79 KB
-
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -146,18 +116,3 @@ int run() {
     } while (checkContinuePlaying(isContinued));
     return 0;
 }
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-AdvProg_AY2223/guessit.cpp at master · wizardap/AdvProg_AY2223
