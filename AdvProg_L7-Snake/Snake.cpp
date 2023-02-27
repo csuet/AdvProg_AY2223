@@ -25,6 +25,12 @@ Snake::~Snake()
             p = nextNode;
     }
     */
+
+    for (SnakeNode* p = tail; tail != nullptr; p = p->next) {
+        SnakeNode* next = p->next;
+        delete p;
+        p = next;
+    }
 }
 
 // DO NOT CHANGE METHOD
@@ -110,7 +116,8 @@ void Snake::slideTo(Position newPosition)
 ***/
 void Snake::eatCherry()
 {
-	/* YOUR CODE HERE */
+	cherry++;
+    score++;
 }
 
 /*** 

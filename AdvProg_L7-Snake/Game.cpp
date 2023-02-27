@@ -52,10 +52,7 @@ Game::~Game()
 
 void Game::snakeMoveTo(Position pos) {
 	//  START CODE HERE
-	//
-	//
-	//
-	//
+
 	// END CODE HERE
 }
 
@@ -74,9 +71,7 @@ void Game::snakeLeave(Position position)
 {
 	// Suggestion: use setCellType() method in Game class
 	// START CODE HERE
-	//  
-	//
-	//
+	setCellType(position, CELL_EMPTY);
 	// END CODE HERE
 }
 
@@ -104,8 +99,8 @@ void Game::processUserInput(Direction direction)
  ***/
 bool Game::canChange(Direction current, Direction next) const {
 	if (current == UP || current == DOWN) 
-		return 0; // YOUR CODE HERE
-	return 0;// YOUR CODE HERE
+		return (current != UP and current != DOWN);
+	return (current != LEFT and current != RIGHT);
 }
 
 
@@ -128,14 +123,16 @@ void Game::nextStep()
 {
 	while (!inputQueue.empty()) {
 		// get the input direction from input queue
-        Direction next ; // YOUR CODE HERE
+        Direction next ;
+
+		next = inputQueue.front();
 
 		// remove the front of input queue
-        // YOUR CODE HERE
+		inputQueue.pop();
 
 		// check if snake can move to the next direction, set current direction as next
         if (canChange(currentDirection, next)) {
-        	// YOUR CODE HERE
+        	currentDirection = next;
         	break;
 		}
     }
@@ -162,15 +159,17 @@ void Game::addCherry()
 		// init a random position inside the play screen (width, height)
 		// Suggestion: use rand() function
 
-        Position randomPos; // YOUR CODE HERE
+        Position randomPos;
+		randomPos.x = rand() % width;
+		randomPos.y = rand() % height;
 		
 		// check if the randomPos is EMPTY 
         if (getCellType(randomPos) == CELL_EMPTY) {
 
         	// assign the cherry position as randomPos, and set randomPos type as CELL_CHERRY
 
-			// YOUR CODE HERE
-			// YOUR CODE HERE
+			cherryPosition = randomPos;
+			setCellType(randomPos, CELL_CHERRY);
 
        		break;
         }
@@ -196,9 +195,9 @@ void Game::setCellType(Position pos, CellType cellType)
 	// Otherwise, do nothing
 	// Suggestion: use pos.isInsideBox(...) in Position class
 	//
-	// START CODE HERE
-	//  
-	// END CODE HERE
+	if (pos.isInsideBox(0, 0, width, height)) {
+		squares[pos.x][pos.y] = cellType;
+	}
 }
 
 

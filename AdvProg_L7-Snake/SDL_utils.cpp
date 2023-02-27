@@ -140,7 +140,9 @@ void renderGamePlay(SDL_Renderer* renderer, const Game& game, Gallery* gallery)
 
 void renderGameOver(SDL_Renderer* renderer, const Game& game)
 {
-
+    if (game.isGameOver()) {
+        SDL_RenderPresent(renderer);
+    }
 }
 
 void interpretEvent(SDL_Event e, Game& game)

@@ -1,0 +1,1 @@
+g++ -std=c++17 Gallery.cpp SDL_utils.cpp Game.cpp Snake.cpp main.cpp -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -o main
