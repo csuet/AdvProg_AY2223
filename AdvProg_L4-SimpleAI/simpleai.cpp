@@ -49,7 +49,7 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
 {
     char answer;
     //Write your code here
-    answer = *selectedChars.begin();
+    answer = *selectedChars.end();
     return answer;
 }
 
