@@ -73,7 +73,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
     string answer;
-    answer = wordlist[index] ;
+    answer = wordList[index] ;
     return answer;
 }
 
@@ -85,7 +85,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 ***/
 string generateHiddenCharacters(string answerWord){
     // TODO: Based on answerWord's length, generate hidden characters in form of "---"
-    string secretWord = string((int)word.size() , '-') ;
+    string secretWord = string((int)answerWord.size() , '-') ;
     return secretWord;
 }
 
@@ -151,12 +151,12 @@ void processData(const char ch, const string& word,
                 int& incorrectGuess, string& incorrectChars)
 {
     if (isCharInWord(ch , word)) {
-        updateSecretWord(scretWord , ch , word) ;
-        updateEnteredChars(ch , chars) ;
+        updateSecretWord(secretWord , ch , word) ;
+        updateEnteredChars(ch , correctChars) ;
     }
     else {
         updateIncorrectGuess(incorrectGuess) ;
-        updateEnteredChars(ch , chars) ;
+        updateEnteredChars(ch , incorrectChars) ;
     }
     /*** TODO
         If ch in word:
