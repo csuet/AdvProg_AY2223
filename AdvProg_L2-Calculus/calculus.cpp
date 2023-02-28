@@ -21,7 +21,7 @@ double mySqrt(double x);
 double myCos(double x) 
 {
     double so_hang = 1, ans = 1;
-    for (int i = 2; i <= 20; i++) {
+    for (int i = 2; i <= 30; i++) {
         so_hang *= - x * x / i / (i - 1);
         ans += so_hang;
     }
@@ -37,7 +37,7 @@ double myCos(double x)
 double mySin(double x)
 {
     double so_hang = x, ans = x;
-    for (int i = 2; i <= 20; i++) {
+    for (int i = 2; i <= 30; i++) {
         so_hang *= - x * x / i / (i + 1);
         ans += so_hang;
     }
