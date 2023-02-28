@@ -55,7 +55,7 @@ vector<string> readWordListFromFile(const string& filePath)
 bool isCharInWord(const char ch, const string& word)
 {
     for ( int i = 0 ; i < (int)word.size() ; i++){
-        if ( word[i] == ch) {
+        if ( tolower(word[i]) == ch) {
             return true ;
         }
     }
