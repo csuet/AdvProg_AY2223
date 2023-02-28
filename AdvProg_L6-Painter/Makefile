@@ -11,8 +11,8 @@ run:
 	./main
 
 test:
-	chmod +x guessitTest
-	./guessitTest
+	chmod +x painterTest
+	./painterTest
 
 clean:
 	rm -rf *.o main painterTest
