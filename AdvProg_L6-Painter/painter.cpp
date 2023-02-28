@@ -70,7 +70,7 @@ void Painter::turnRight(double degree)
     // TODO: rotate right the painter
     angle-=degree;
 angle = angle
- - floor(angle/360)*360;
+ - ceil(angle/360)*360;
 }
 
 /***
