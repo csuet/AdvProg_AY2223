@@ -54,9 +54,10 @@ void Painter::turnLeft(double degree)
     // TODO: rotate left the painter
     double angle = this->angle + degree;
 
-    angle = fmod(angle, 360);
-    //if (angle < 0)
-    //    angle += 360;
+    if(angle >= 360)
+        angle -= 360;
+    if (angle < 0)
+        angle += 360;
 
     setAngle(angle);
 }
@@ -70,7 +71,10 @@ void Painter::turnLeft(double degree)
 void Painter::turnRight(double degree)
 {
     double angle = this->angle - degree;
-    if(angle < 0) angle += 360;
+    if (angle >= 360)
+        angle -= 360;
+    if (angle < 0)
+        angle += 360;
     setAngle(angle);
 }
 
