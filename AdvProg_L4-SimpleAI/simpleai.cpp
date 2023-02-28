@@ -84,13 +84,16 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
 {
     char answer;
     //Write your code here
-    int d=0;
-    for (char c : selectedChars)
+    int dm=0;
+    for (char i = 'a' ; i<='z' ; ++i)
     {
-        if (occurrences.at(c)>d)
+        if (selectedChars.find(i) != selectedChars.end())
         {
-            d=occurrences.at(c);
-            answer=c;
+            if (occurrences.at(i)>dm)
+            {
+                dm=occurrences.at(i);
+                answer=i;
+            }
         }
     }
 
@@ -135,10 +138,7 @@ bool isCorrectChar(char ch, const string& mask)
 {
     //bool answer;
     //Write your code here
-    for (auto x: mask)
-    {
-        if (ch == x) return true;
-    }
+    if (isCharInWord(ch,mask)) return true;
     return false;
 }
 
