@@ -7,7 +7,6 @@
 #include <cppunit/BriefTestProgressListener.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
 
-
 #include "painter.h"
 #include "utils.h"
 
@@ -29,7 +28,7 @@ bool verifySetColor(SDL_Color color) {
     if (color1.r == color.r & color.g == color.g && color1.b == color.b && painter.getColor().r == color.r && painter.getColor().g == color.g && painter.getColor().b == color.b) {
         return true;
     }
-    return true;
+    return false;
 }
 
 
@@ -48,7 +47,7 @@ bool verifyJumpForward(int numPixel, double angle, int curX, int curY, int diffX
         return true;
     }
     else {
-      return false;
+        return false;
     }
 }
 
