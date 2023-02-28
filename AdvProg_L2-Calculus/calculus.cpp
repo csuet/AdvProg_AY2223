@@ -24,6 +24,7 @@ double myCos(double x)
     while (abs (now - prev) < 0.00001) {
         prev = now;
         now += - x * x / i / (i - 1);
+        i+=2;
     }
     return now;
 }
@@ -36,12 +37,13 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    double so_hang = x, ans = x;
-    for (int i = 2; i <= 30; i++) {
-        so_hang *= - x * x / i / (i + 1);
-        ans += so_hang;
+    double prev = 0, now = 1, i = 2;
+    while (abs (now - prev) < 0.00001) {
+        prev = now;
+        now += - x * x / i / (i - 1);
+        i+=2;
     }
-    return ans;
+    return now;
 }
 
 
