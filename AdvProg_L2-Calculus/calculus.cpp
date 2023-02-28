@@ -57,7 +57,7 @@ double mySqrt(double x) {
         exit(1);
     }
     double prev = 10, now = 0;
-    while (abs (now - prev) < 0.00001)
+    for (int i = 1; i <= 20; i++)
         now = prev - (prev * prev - x) / 2 / prev;
     
     return now;
