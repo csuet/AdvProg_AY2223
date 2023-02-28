@@ -21,6 +21,8 @@ Game::Game(int _width, int _height)
       score(0)
 {
 	// add new cheery in game initiation
+	snakeMoveTo(Position(_width/2, _height/2));
+	status = GAME_RUNNING;
 	addCherry();
 }
 
@@ -51,9 +53,29 @@ Game::~Game()
 ***/
 
 void Game::snakeMoveTo(Position pos) {
-	//  START CODE HERE
+	CellType thisCell = getCellType(pos);
 
-	// END CODE HERE
+	if (thisCell == CELL_OFF_BOARD) {
+		status = GAME_OVER;
+		return;
+	}
+
+	if (thisCell == CELL_SNAKE) {
+		status = GAME_OVER;
+		return;
+	}
+
+	if (thisCell == CELL_CHERRY) {
+		score++;
+
+		snake.eatCherry();
+
+		addCherry();
+		return;
+	}
+
+	
+	setCellType(pos, CELL_SNAKE);
 }
 
 
@@ -70,9 +92,7 @@ void Game::snakeMoveTo(Position pos) {
 void Game::snakeLeave(Position position)
 {
 	// Suggestion: use setCellType() method in Game class
-	// START CODE HERE
 	setCellType(position, CELL_EMPTY);
-	// END CODE HERE
 }
 
 
@@ -98,9 +118,11 @@ void Game::processUserInput(Direction direction)
  * 
  ***/
 bool Game::canChange(Direction current, Direction next) const {
-	if (current == UP || current == DOWN) 
-		return (current != UP and current != DOWN);
-	return (current != LEFT and current != RIGHT);
+	if (current == UP || current == DOWN) {
+		return (next != UP and next != DOWN);
+	}
+		
+	return (next != LEFT and next != RIGHT);
 }
 
 
@@ -131,7 +153,7 @@ void Game::nextStep()
 		inputQueue.pop();
 
 		// check if snake can move to the next direction, set current direction as next
-        if (canChange(currentDirection, next)) {
+		if (canChange(currentDirection, next)) {
         	currentDirection = next;
         	break;
 		}
@@ -167,10 +189,8 @@ void Game::addCherry()
         if (getCellType(randomPos) == CELL_EMPTY) {
 
         	// assign the cherry position as randomPos, and set randomPos type as CELL_CHERRY
-
 			cherryPosition = randomPos;
 			setCellType(randomPos, CELL_CHERRY);
-
        		break;
         }
     } while (true);
@@ -196,7 +216,7 @@ void Game::setCellType(Position pos, CellType cellType)
 	// Suggestion: use pos.isInsideBox(...) in Position class
 	//
 	if (pos.isInsideBox(0, 0, width, height)) {
-		squares[pos.x][pos.y] = cellType;
+		squares[pos.y][pos.x] = cellType;
 	}
 }
 
