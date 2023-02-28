@@ -20,14 +20,12 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    double so_hang = 1, prev = 0, now = 1, i = 2;
-    while (abs (now - prev) < 0.00001) {
-        prev = now;
+    double so_hang = 1, ans = 1;
+    for (int i = 2; i <= 20; i+=2) {
         so_hang *= - x * x / i / (i - 1);
-        now += so_hang;
-        i += 2;
+        ans += so_hang;
     }
-    return now;
+    return ans;
 }
 
 /***
@@ -38,14 +36,12 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    double so_hang = x, prev = 0, now = x, i = 2;
-    while (abs (now - prev) < 0.00001) {
-        prev = now;
-        so_hang *= - x * x / i / (i - 1);
-        now += so_hang;
-        i += 2;
+    double so_hang = x, ans = x;
+    for (int i = 2; i <= 20; i+=2) {
+        so_hang *= - x * x / i / (i + 1);
+        ans += so_hang;
     }
-    return now;
+    return ans;
 }
 
 
