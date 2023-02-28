@@ -1,10 +1,17 @@
 #include <iostream>
 #include <ctime>
 
-//Mac
-#include <SDL2/SDL.h>
-// //Windows
-// #include <SDL.h>
+#if defined(_WIN64) || defined(_WIN32)
+    #include <SDL.h>
+#else
+    #include <SDL2/SDL.h>
+#endif
+
+#if defined(_WIN64) || defined(_WIN32)
+    #include <SDL_image.h>
+#else
+    #include <SDL2/SDL_image.h>
+#endif
 
 #include "painter.h"
 #include "utils.h"

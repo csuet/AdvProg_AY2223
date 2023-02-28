@@ -2,7 +2,18 @@
 #define UTILS_H
 
 #include <iostream>
-#include <SDL2/SDL.h>
+
+#if defined(_WIN64) || defined(_WIN32)
+    #include <SDL.h>
+#else
+    #include <SDL2/SDL.h>
+#endif
+
+#if defined(_WIN64) || defined(_WIN32)
+    #include <SDL_image.h>
+#else
+    #include <SDL2/SDL_image.h>
+#endif
 
 const int SCREEN_WIDTH  = 800;
 const int SCREEN_HEIGHT = 600;
