@@ -62,6 +62,9 @@ void Painter::turnLeft(double degree)
     while(currentAngle < 0)
         currentAngle += maxAngle;
 
+    if(currentAngle > 270)
+        currentAngle -= 360;
+
     setAngle(currentAngle);
 }
 
