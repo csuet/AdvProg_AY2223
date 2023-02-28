@@ -1,4 +1,13 @@
 #include "painter.h"
+#include <random>
+#include <chrono>
+using namespace std;
+
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+
+int random(int l, int r) {
+    return rng() % (r - l + 1) + l;
+}
 
 /***
     Args: color (SDL_Color): color value 
@@ -9,6 +18,8 @@
 void Painter::setColor(SDL_Color color) 
 { 
     // TODO: set the color value for the Painter and set Render Draw Color
+    this->color = color;
+    SDL_SetRenderDrawColor(this->renderer, color.r, color.g, color.b, color.a);
 }
 
 
@@ -21,6 +32,8 @@ void Painter::setColor(SDL_Color color)
 void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
+    this->x += numPixel * cos(angle / 180 * M_PI);
+    this->y -= numPixel * sin(angle / 180 * M_PI);
 }
 
 
@@ -33,6 +46,8 @@ void Painter::jumpForward(int numPixel)
 void Painter::jumpBackward(int numPixel)
 {
     // TODO: jump the painter backward
+    this->x -= numPixel * cos(angle / 180 * M_PI);
+    this->y += numPixel * sin(angle / 180 * M_PI);
 }
 
 
@@ -44,7 +59,9 @@ void Painter::jumpBackward(int numPixel)
 ***/       
 void Painter::turnLeft(double degree)
 {
-    // TODO: rotate left the painter   
+    // TODO: rotate left the painter
+    angle += degree;
+    angle = fmod(this->angle, 360);
 }
 
 
@@ -57,6 +74,8 @@ void Painter::turnLeft(double degree)
 void Painter::turnRight(double degree)
 {
     // TODO: rotate right the painter   
+    this->angle -= degree;
+    angle = fmod(this->angle, 360);
 }
 
 /***  
@@ -65,9 +84,12 @@ void Painter::turnRight(double degree)
     Returns:
         None
 ***/
+
 void Painter::randomColor()
 {
-    // TODO: set random color    
+    // TODO: set random color  
+    vector <SDL_Color> colorList = {CYAN_COLOR, BLUE_COLOR, ORANGE_COLOR, YELLOW_COLOR, LIME_COLOR, PURPLE_COLOR, RED_COLOR, WHITE_COLOR, BLACK_COLOR, GREEN_COLOR};
+    this->color = colorList[random(0, (int)colorList.size() - 1)];
 }
 
 
