@@ -304,7 +304,7 @@ protected:
 
   void testMyPainterRandomColor(void){
       int testSize = 4;
-      std::string sharedName = "[turnRight test] ";
+      std::string sharedName = "[randomColor test] ";
       TestStruct generateRandomNumberTestCases[testSize]  =
       {
         {
