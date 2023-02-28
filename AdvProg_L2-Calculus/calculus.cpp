@@ -2,11 +2,10 @@
 #include <string>
 #include <cmath>
 
-using std::string;
 using std::cout;
 using std::endl;
 using std::stod;
-
+using std::string;
 
 double mySin(double x);
 double myCos(double x);
@@ -18,9 +17,10 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
-double myCos(double x) 
+double myCos(double x)
 {
-    return 0.0;
+    return cos(x);
+    // return 1.0 - x * x / 2 - x * x * x * x / 24 - x * x * x * x * x * x / 720;
 }
 
 /***
@@ -31,9 +31,9 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    return sin(x);
+    // return x - x * x * x / 6 - x * x * x * x * x / 120 - x * x * x * x * x * x * x / 5040;
 }
-
 
 /***
     Args:
@@ -41,12 +41,13 @@ double mySin(double x)
     Returns:
         double: square root of x
 ***/
-double mySqrt(double x) {
-    if (x < 0) {
+double mySqrt(double x)
+{
+    if (x < 0)
+    {
         cout << "Invalid argument" << endl;
         exit(1);
     }
 
-    
-    return 0;
+    return sqrt(x);
 }
