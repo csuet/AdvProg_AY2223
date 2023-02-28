@@ -81,7 +81,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 
     answer = wordList[ index ];
 
-    for(auto ch : answer)
+    for(auto &ch : answer)
     {
         if(ch >= 'A' && ch <= 'Z')
             ch += 32;
