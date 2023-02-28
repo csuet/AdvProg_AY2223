@@ -18,12 +18,13 @@ int main()
     vector<string> wordList;
     try {
         wordList = readWordListFromFile(vocabularyFile);
-    } catch (domain_error) {
+    }
+    catch (domain_error) {
         cout << endl << "Error: in reading vocabulary file: " << vocabularyFile << endl;
         return 1;
     }
 
-    int index = generateRandomNumber(0, wordList.size()-1);
+    int index = generateRandomNumber(0, wordList.size() - 1);
     string word = chooseWordFromList(wordList, index);
 
     if (word.empty()) {
@@ -37,18 +38,18 @@ int main()
     int incorrectGuess = 0;
     string correctChars = "";
     string incorrectChars = "";
-    
-    printScreen(word, secretWord, correctChars, incorrectGuess, incorrectChars); 
-    
+
+    printScreen(word, secretWord, correctChars, incorrectGuess, incorrectChars);
+
     do {
         char ch = getInputCharacter();
 
-        processData(ch, word, secretWord, 
-                    correctChars, incorrectGuess, incorrectChars);
-        
-        printScreen(word, secretWord, correctChars, incorrectGuess, incorrectChars); 
+        processData(ch, word, secretWord,
+            correctChars, incorrectGuess, incorrectChars);
 
-    } while (secretWord != word && incorrectGuess != MAX_MISTAKES-1);
+        printScreen(word, secretWord, correctChars, incorrectGuess, incorrectChars);
+
+    } while (secretWord != word && incorrectGuess != MAX_MISTAKES - 1);
 
     playAnimation(word, secretWord, correctChars, incorrectGuess, incorrectChars);
 
