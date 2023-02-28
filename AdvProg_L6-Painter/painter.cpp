@@ -69,7 +69,9 @@ void Painter::turnLeft(double degree)
 ***/
 void Painter::turnRight(double degree)
 {
-    turnLeft(-degree);
+    double angle = this->angle - degree;
+    if(angle < 0) angle += 360;
+    setAngle(angle);
 }
 
 /***
