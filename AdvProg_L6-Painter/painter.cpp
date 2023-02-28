@@ -1,4 +1,5 @@
 #include "painter.h"
+#include<cmath>
 //#include<SDL.h>
 
 /***
@@ -54,8 +55,8 @@ void Painter::turnLeft(double degree)
 {
     // TODO: rotate left the painter
     angle+=degree;
-    angle=angle%360;
-}
+angle = angle
+ - floor(angle/360)*360;}
 
 
 /***
@@ -68,8 +69,8 @@ void Painter::turnRight(double degree)
 {
     // TODO: rotate right the painter
     angle-=degree;
-    angle=angle%360;
-
+angle = angle
+ - floor(angle/360)*360;
 }
 
 /***
