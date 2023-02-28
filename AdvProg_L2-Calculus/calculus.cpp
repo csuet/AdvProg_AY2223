@@ -20,12 +20,12 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    double so_hang = 1, ans = 1;
-    for (int i = 2; i <= 40; i++) {
-        so_hang *= - x * x / i / (i - 1);
-        ans += so_hang;
+    double prev = 0, now = 1, i = 2;
+    while (abs (now - prev) < 0.00001) {
+        prev = now;
+        now += - x * x / i / (i - 1);
     }
-    return ans;
+    return now;
 }
 
 /***
