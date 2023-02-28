@@ -56,8 +56,10 @@ void Painter::turnLeft(double degree)
     const double maxAngle = 360;
     double currentAngle = this->angle + degree;
 
-    currentAngle -= (int)(currentAngle/maxAngle) * maxAngle;
-    if(currentAngle < 0)
+    while(currentAngle > 360)
+        currentAngle -= maxAngle;
+
+    while(currentAngle < 0)
         currentAngle += maxAngle;
 }
 
