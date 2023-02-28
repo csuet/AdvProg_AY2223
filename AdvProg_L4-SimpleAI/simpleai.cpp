@@ -67,7 +67,7 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
     for (string w:candidateWords)
         for(int i =0 ; i<w.size(); ++i)
         {
-            answer.at(s[i])++;
+            answer.at(w[i])++;
         }
     return answer;
 }
