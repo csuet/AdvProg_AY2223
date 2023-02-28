@@ -3,6 +3,5 @@
 
 std::string printGameOver(){
 	// TODO: Return the required string
-	
-	return "Gane Over!";
+	return "Game Over !";
 }
