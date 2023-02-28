@@ -18,9 +18,10 @@ double mySqrt(double x);
     Returns:
         double: cosine of x
 ***/
-double myCos(double x) 
+double myCos(double x)
 {
-    return 0.0;
+    double hehe = cos(x);
+    return hehe;
 }
 
 /***
@@ -31,7 +32,8 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double haha = sin(x);
+    return haha;
 }
 
 
@@ -47,6 +49,6 @@ double mySqrt(double x) {
         exit(1);
     }
 
-    
-    return 0;
+
+    return  sqrt(x) ;
 }
