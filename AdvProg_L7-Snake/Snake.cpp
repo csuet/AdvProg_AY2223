@@ -120,7 +120,7 @@ void Snake::slideTo(Position newPosition)
 ***/
 void Snake::eatCherry()
 {
-	cherry = 1;
+	cherry += 1;
     score++;
 }
 
