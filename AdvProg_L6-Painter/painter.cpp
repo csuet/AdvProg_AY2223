@@ -55,7 +55,7 @@ void Painter::jumpBackward(int numPixel)
 void Painter::turnLeft(double degree)
 {
     // TODO: rotate left the painter   
-    angle += degree;
+    angle -= degree;
 }
 
 
@@ -68,7 +68,7 @@ void Painter::turnLeft(double degree)
 void Painter::turnRight(double degree)
 {
     // TODO: rotate right the painter   
-    angle -= degree;
+    angle += degree;
 }
 
 /***  
