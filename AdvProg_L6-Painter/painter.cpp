@@ -51,19 +51,8 @@ void Painter::jumpBackward(int numPixel)
 void Painter::turnLeft(double degree)
 {
 	// TODO: rotate left the painter
-	const double maxAngle = 360;
-	double newAngle = this->angle + degree;
-	if (newAngle > maxAngle)
-	{
-		while (newAngle > maxAngle)
-			newAngle -= maxAngle;
-	}
-	else if (newAngle < 0)
-	{
-		while (newAngle < 0)
-			newAngle += maxAngle;
-	}
-	setAngle(newAngle);
+	angle += degree;
+	angle -= (int)(angle / 360) * 360;
 	return;
 }
 
@@ -76,8 +65,8 @@ void Painter::turnLeft(double degree)
 void Painter::turnRight(double degree)
 {
 	// TODO: rotate right the painter
-
-	turnLeft(-degree);
+	angle -= degree;
+	angle -= (int)(angle / 360) * 360;
 	return;
 }
 
@@ -96,6 +85,7 @@ void Painter::randomColor()
 	Uint8 b = rand() % 256;
 	SDL_Color color = {r, g, b};
 	setColor(color);
+	return;
 }
 
 /***
