@@ -19,7 +19,7 @@ using std::cin;
 int generateRandomNumber(const int min, const int max)
 {
     srand(time(NULL)) ;
-    int a = min + rand()%(max - 1) ;
+    int a = min + rand()%(max -min +  1) ;
     // TODO: Return a random integer number between min and max
     return a;
 }
