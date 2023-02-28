@@ -25,7 +25,6 @@ int main()
 
     int index = generateRandomNumber(0, wordList.size()-1);
     string word = chooseWordFromList(wordList, index);
-
     if (word.empty()) {
         cout << "Error: Coud not choose a random word." << endl;
         return 1;
