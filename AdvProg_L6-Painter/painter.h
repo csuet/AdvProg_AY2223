@@ -5,9 +5,9 @@
 #include <cstdlib>
 
 //Mac
-#include <SDL2/SDL.h>
+//#include <SDL2/SDL.h>
 //Windows
-// #include <SDL.h>
+#include <SDL.h>
 
 const SDL_Color CYAN_COLOR = {0, 255, 255};
 const SDL_Color BLUE_COLOR = {0, 0, 255};
