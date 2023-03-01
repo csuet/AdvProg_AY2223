@@ -9,6 +9,8 @@
 void Painter::setColor(SDL_Color color) 
 { 
     // TODO: set the color value for the Painter and set Render Draw Color
+    this->color = color;
+    SDL_SetRenderDrawColor(this->renderer, color.r, color.g, color.b, color.a);
 }
 
 
@@ -18,9 +20,12 @@ void Painter::setColor(SDL_Color color)
     Returns:
         None
 ***/
+constexpr float to_rad = M_PI / 180.0f; 
 void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
+    x += cos(this->angle * to_rad) * numPixel;
+    y -= sin(this->angle * to_rad) * numPixel;
 }
 
 
@@ -33,6 +38,7 @@ void Painter::jumpForward(int numPixel)
 void Painter::jumpBackward(int numPixel)
 {
     // TODO: jump the painter backward
+    Painter::jumpForward(-numPixel);
 }
 
 
@@ -42,9 +48,13 @@ void Painter::jumpBackward(int numPixel)
     Returns:
         None
 ***/       
+
+
 void Painter::turnLeft(double degree)
 {
     // TODO: rotate left the painter   
+    angle += degree;
+    angle -= static_cast<float>(static_cast<int>(angle / 360.0f)) * 360.0f;
 }
 
 
@@ -57,6 +67,7 @@ void Painter::turnLeft(double degree)
 void Painter::turnRight(double degree)
 {
     // TODO: rotate right the painter   
+    turnLeft(-degree);
 }
 
 /***  
@@ -65,9 +76,22 @@ void Painter::turnRight(double degree)
     Returns:
         None
 ***/
+const SDL_Color col_array[10] = {
+    CYAN_COLOR, 
+    BLUE_COLOR, 
+    ORANGE_COLOR, 
+    YELLOW_COLOR, 
+    LIME_COLOR,
+    PURPLE_COLOR,
+    RED_COLOR,
+    WHITE_COLOR,
+    BLACK_COLOR,
+    GREEN_COLOR
+};
 void Painter::randomColor()
 {
     // TODO: set random color    
+    this->setColor(col_array[rand() % 10]);
 }
 
 
