@@ -1,3 +1,8 @@
+// #ifndef QUANMCVN_CUSTOM_DEBUG_FLAG_TEMPORARY_SHOULD_NOT_BE_USED_IN_PRODUCTION
+// #define cerr if (false) cerr
+// #endif
+// ALL HAIL MinGW/bin/gdb.exe
+
 #include "Snake.h"
 #include "Game.h"
 #include <iostream>
@@ -30,6 +35,7 @@ Snake::~Snake()
         delete p;
         p = nextNode;
    }
+    // cerr << "exiting Snake::~Snake()\n";
 }
 
 // DO NOT CHANGE METHOD
@@ -56,11 +62,11 @@ vector<Position> Snake::getPositions() const
 ***/
 void Snake::growAtFront(Position newPosition)
 {
-    head->next = new SnakeNode(newPosition, nullptr);
-    head = head->next;
     // head of snake grow at new position
     
     /* YOUR CODE HERE */
+    head->next = new SnakeNode(newPosition, nullptr);
+    head = head->next;
 }
 
 
@@ -88,10 +94,13 @@ void Snake::growAtFront(Position newPosition)
 
 void Snake::slideTo(Position newPosition)
 {
+    // cerr << "calling Snake::slideTo()\n";
     if (tail->next == nullptr) { 
+        // cerr << "in  tail->next == nullptr\n";
         // position is assigned by new position.
         /* YOUR CODE HERE */
         tail->position = newPosition;
+        // cerr << "out tail->next == nullptr\n";
     }
     else {
         SnakeNode *oldTailNode = tail;
@@ -99,12 +108,13 @@ void Snake::slideTo(Position newPosition)
         /* YOUR CODE HERE */
         tail = tail->next;
         oldTailNode->next = nullptr;
-        oldTailNode->position = newPosition;
-        head->next = oldTailNode;
         // move it to the head of the snake
         /* YOUR CODE HERE */
-        head = oldTailNode;
+        oldTailNode->position = newPosition;
+        head->next = oldTailNode;
+        head = head->next;
     }
+    // cerr << "exiting Snake::slideTo()\n";
 }
 
 /*** 
