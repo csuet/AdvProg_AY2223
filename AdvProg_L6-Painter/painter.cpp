@@ -26,7 +26,7 @@ void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
     int dx = cos(angle)*numPixel;
-    int dy = sin(angle)*numPixel;
+    int dy = -sin(angle)*numPixel;
     setPosition(x + dx, y + dy);
 }
 
