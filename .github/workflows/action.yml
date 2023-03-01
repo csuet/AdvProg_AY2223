@@ -2,11 +2,11 @@ name: Test 7 Repo
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ master, fixbugL6Painter ]
     paths-ignore:
       - '.github/workflows/**'
       - '**/mainTest.cpp'
-      
+
 jobs:
   get_changed_files:
     runs-on: ubuntu-latest
@@ -19,9 +19,9 @@ jobs:
       run: |
         echo "Modified:"
         echo "${{ steps.thuytt_files.outputs.modified }}"
-    outputs: 
+    outputs:
       abc: ${{ steps.thuytt_files.outputs.modified }}
-  
+
 #   check_in_folder:
 #     needs: get_changed_files
 #     runs-on: ubuntu-latest
@@ -53,7 +53,7 @@ jobs:
           ./configure
           make
           make test
-  
+
   # AdvProg_L1-GuessIt
   check_AdvProg_L1:
     needs: get_changed_files
@@ -91,7 +91,7 @@ jobs:
           ./configure
           make
           make test
-        
+
   # AdvProg_L3_HangMan
   check_AdvProg_L3:
     needs: get_changed_files
@@ -110,7 +110,7 @@ jobs:
           ./configure
           make
           make test
-  
+
   # AdvProg_L4-SimpleAI
   check_AdvProg_L4:
     needs: get_changed_files
@@ -129,7 +129,7 @@ jobs:
           ./configure
           make
           make test
-        
+
   # AdvProg_L6-Painter
   check_AdvProg_L6:
     needs: get_changed_files
@@ -150,7 +150,7 @@ jobs:
           ./configure
           make
           make test
-        
+
   # AdvProg_L7-Snake
   check_AdvProg_L7:
     needs: get_changed_files
@@ -172,4 +172,3 @@ jobs:
           ./configure
           make
           make test
-
