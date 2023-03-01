@@ -79,7 +79,7 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
 char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& selectedChars)
 {
     char answer;
-    for (auto it : occurences ){
+    for (auto it : occurrences ){
         if (selectedChars.find(it.first) != selectedChars.end()) continue ;
         else {
             int max = 0 ;
@@ -198,7 +198,7 @@ vector<string> filterWordsByMask(const vector<string>& words, const string& mask
     vector<string> answer;
     //Write your code here
     for ( int i = 0 ; i < (int)words.size() ; i++){
-        if (wordConformToMask(words.[i] , mask , ch)) answer.push_back(words[i]) ;
+        if (wordConformToMask(words[i] , mask , ch)) answer.push_back(words[i]) ;
     }
     return answer;
 }
