@@ -5,9 +5,9 @@
 #include <cstdlib>
 
 //Mac
-#include <SDL2/SDL.h>
-//Windows
-// #include <SDL.h>
+// #include <SDL2/SDL.h>
+// Windows
+#include <SDL.h>
 
 const SDL_Color CYAN_COLOR = {0, 255, 255};
 const SDL_Color BLUE_COLOR = {0, 0, 255};
@@ -21,6 +21,7 @@ const SDL_Color BLACK_COLOR = {0, 0, 0};
 const SDL_Color GREEN_COLOR = {0, 128, 0};
 
 const SDL_Color DEFAULT_COLOR = BLACK_COLOR;
+const double pi = acos(-1);
 
 /***
    An Implementation of Code.org Painter 
