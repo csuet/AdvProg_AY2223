@@ -69,6 +69,8 @@ void Painter::turnRight(double degree)
     angle -= degree;  
 }
 
+
+
 /***  
     Args: 
         None
