@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/cppunit/include/cppunit",
+                "${workspaceFolder}/AdvProg_L0-Hello/cppunit/include",
+                "C:\\phuongnam\\AdvProg_AY2223\\AdvProg_L0-Hello\\cppunit\\include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "C:\\Users\\ADMIN\\scoop\\apps\\gcc\\current\\bin\\gcc.exe",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "windows-gcc-x64"
+        }
+    ],
+    "version": 4
+}
