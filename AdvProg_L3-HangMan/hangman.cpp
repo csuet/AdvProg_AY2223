@@ -16,7 +16,7 @@ using std::cin;
 ***/
 int generateRandomNumber(const int min, const int max)
 {
-    return rand() % max + (min + 1);
+    return rand() % (max-min+1) + min;
 }
 
 vector<string> readWordListFromFile(const string& filePath)

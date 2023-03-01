@@ -46,8 +46,7 @@ bool checkSuccess(string answer) {
 bool checkContinuePlaying(char isContinued) {
     // TODO: return result after checking player continue playing or not
     bool result;
-    if (isContinued == 'Y') result = true;
-    else if (isContinued == 'N') result = false;
+    if (isContinued == 'Y' || isContinued == 'y') result = true;
     return result;
 }
 
@@ -56,11 +55,9 @@ bool checkContinuePlaying(char isContinued) {
 char getPlayerOpinion() {
     // TODO: Ask the player about continue playing and return the player's choice
     cout << "Do you want to continue playing? Y or N." << endl;
-    string input;
+    char input;
     cin >> input;
-    if (input == "Y" || input == "y") return 'Y';
-    else if (input == "N" || input == "n") return 'N'; 
-    return 0;
+    return input;
 }
 
 
