@@ -111,13 +111,12 @@ void Game::processUserInput(Direction direction)
 bool Game::canChange(Direction current, Direction next) const {
 	if (current == UP || current == DOWN){
         if(next==UP||next==DOWN)return 0;
-        else return 1;
 	}
 		 // YOUR CODE HERE
     else if(current==LEFT||current==RIGHT){
         if(next==LEFT||next==RIGHT)return 0;
-        else return 1;
     }
+    return 1;
 
 }
 
@@ -185,7 +184,7 @@ void Game::addCherry()
 
         	// assign the cherry position as randomPos, and set randomPos type as CELL_CHERRY
             cherryPosition=randomPos;
-            setCellType(cherryPosition)=CELL_CHERRY;
+            setCellType(cherryPosition,CELL_CHERRY);
 			// YOUR CODE HERE
 			// YOUR CODE HERE
 
