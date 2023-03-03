@@ -30,7 +30,7 @@ vector<string> readWordListFromFile(const string& filePath)
         throw domain_error("Unable to open file");
     }
 
-    //while ( getline (wordFile, word) ){  // Thong thuong doc tung line. 
+    //while ( getline (wordFile, word) ){  // Thong thuong doc tung line.
                                            // Chuong trinh nay cung chay.
     while (wordFile >> word) {  // Nhung voi chuong trinh nay, doc tung word cung duoc
                                 // Tuc ca 2 cach doc deu chay.
@@ -128,7 +128,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 ***/
 void updateEnteredChars(const char ch, string& chars){
     // TODO: append the character ch is in end of the text chars
-    chars += ch;
+    chars = chars + ch + ' ';
 }
 
 /***
