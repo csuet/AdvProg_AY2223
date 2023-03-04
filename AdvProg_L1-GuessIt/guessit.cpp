@@ -13,7 +13,7 @@ using namespace std;
         number (int) : random number in range 1-100
 ***/
 int generateRandomNumber() {
-    return rand() % 100 + 1;
+    return rand() % 100 + 1  ;
 }
 
 
