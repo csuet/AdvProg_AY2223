@@ -58,7 +58,7 @@ void Game::snakeMoveTo(Position pos) {
 		return;
 	}
 
-	if (getCherryPosition() == pos) {
+	if (ct == CELL_CHERRY) {
 		score ++;
 		snake.eatCherry();
 		addCherry();
