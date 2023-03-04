@@ -65,9 +65,9 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
     map<char, int> answer;
     //Write your code here
     for (string w:candidateWords)
-        for(int i =0 ; i<w.size(); ++i)
+        for(char c: w)
         {
-            answer.at(w[i])++;
+            answer[c]++;
         }
     return answer;
 }
@@ -86,22 +86,12 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
     //Write your code here
     int dm=0;
 
-    for (char i = 'a' ; i<='z' ; ++i)
+    for (auto x : occurrences)
     {
-        bool ok = true;
-        for (auto c:selectedChars)
-        {
-            if (c == i) 
+        if (!selectedChars.count(x.first) && x.second > dm)
             {
-                ok= false;
-                break;
-            }
-        }
-
-        if (ok && occurrences.at(i)>dm)
-            {
-                dm=occurrences.at(i);
-                answer=i;
+                dm=x.second;
+                answer=x.first;
             }
     }
 
@@ -120,8 +110,8 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
 {
     char answer = 0;
     //Write your code here
-    map <char,int> occurrences = countOccurrences(candidateWords);
-    answer = findMostFrequentChar(occurrences, selectedChars);
+    //map <char,int> occurrences = countOccurrences(candidateWords);
+    answer = findMostFrequentChar(countOccurrences(candidateWords), selectedChars);
     return answer;
 }
 
