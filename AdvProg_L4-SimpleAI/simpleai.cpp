@@ -1,5 +1,5 @@
 #include "simpleai.h"
-
+#include <ctime>
 int readMaxGuess()
 {
     int maxGuess;
@@ -27,7 +27,13 @@ int readWordLen()
 vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
 {
     vector<string> answer;
-    //Write your code here
+    for (string i : vocabulary)
+    {
+        if ( i.size() == wordLen)
+        {
+            answer.push_back(i);
+        }
+    }
     return answer;
 }
 
@@ -42,6 +48,16 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
 {
     char answer;
     //Write your code here
+    srand(time(0));
+    auto it = selectedChars.end();
+    char s;
+    while (it != selectedChars.end())
+    {
+    int n = rand() % 26 + 0;
+    char s = char(n+'a');
+    it = selectedChars.find(s);
+    }
+    answer = s;
     return answer;
 }
 
@@ -55,7 +71,14 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
 map<char, int> countOccurrences(const vector<string>& candidateWords)
 {
     map<char, int> answer;
-    //Write your code here
+    for (char c = 'a'; c <= 'z'; c++) answer[c] = 0;
+    for (string s : candidateWords)
+    {
+        for (char c : s)
+        {
+            answer[c]++;
+        }
+    }
     return answer;
 }
 
@@ -71,6 +94,17 @@ char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& se
 {
     char answer;
     //Write your code here
+    int max = 0;
+    for (char c = 'a'; c <= 'z'; c++)
+    {
+        if (selectedChars.find(c) != selectedChars.end()) continue;
+        int a = occurrences.at(c);
+        if (a > max)
+        {
+            max = a;
+            answer = c;
+        }
+    }
     return answer;
 }
 
@@ -86,6 +120,8 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
 {
     char answer;
     //Write your code here
+    map<char, int> a = countOccurrences(candidateWords);
+    answer = findMostFrequentChar(a, selectedChars);
     return answer;
 }
 
@@ -110,6 +146,11 @@ bool isCorrectChar(char ch, const string& mask)
 {
     bool answer;
     //Write your code here
+    string s = "";
+    s += ch;
+    if (mask.find(s) <= mask.size())
+        answer = true;
+    else answer = false;
     return answer;
 }
 
@@ -123,8 +164,12 @@ bool isCorrectChar(char ch, const string& mask)
 ***/
 bool isWholeWord(const string& mask)
 {
-     bool answer;
-    //Write your code here
+     bool answer = true;
+    for (auto i : mask)
+    {
+        if (!((i >= 'a' && i <= 'z' ) || (i >= 'A' && i <= 'Z')))
+            answer = false;
+    }
     return answer;
 }
 
@@ -140,10 +185,15 @@ bool isWholeWord(const string& mask)
                  - True: mask(-ood), char 'd'  vs word(good)
 
 ***/
-bool wordConformToMask(const string& word, const string& mask, char ch) 
+bool wordConformToMask(const string& word, const string& mask, char ch)
 {
     bool answer;
     //Write your code here
+    string s = "";
+    s += ch;
+    if (word.find(s) == mask.find(s) && word.find(s) <= word.size())
+        answer = true;
+        else answer = false;
     return answer;
 }
 
@@ -153,7 +203,7 @@ bool wordConformToMask(const string& word, const string& mask, char ch)
         words (vector<string>): The candidate words
         ch (char): The predicted character by the AI
     Returns:
-        answer (bool) : a list of word which satisfiy the mask and the predicted character
+        answer (bool) : a list of word which satisfy the mask and the predicted character
         Examples: input words: (good,boot,hood,...)
                   input mask: -ood
                   predicted char: d
@@ -162,6 +212,19 @@ bool wordConformToMask(const string& word, const string& mask, char ch)
 vector<string> filterWordsByMask(const vector<string>& words, const string& mask, char ch)
 {
     vector<string> answer;
-    //Write your code here
+    for (string i : words)
+    {
+        if (wordConformToMask(i, mask, ch) && i.size() == mask.size())
+        {
+            string s = "";
+            for (char c : mask)
+            {
+                if ((c >= 'a' && c <= 'z' ) || (c >= 'A' && c <= 'Z'))
+                    s += c;
+            }
+            if ( i.find(s) <= i.size())
+                answer.push_back(i);
+        }
+    }
     return answer;
 }
