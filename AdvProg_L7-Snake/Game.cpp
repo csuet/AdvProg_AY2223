@@ -13,7 +13,7 @@ using namespace std;
 // set some attributes as default value
 // DO NOT CHANGE THIS CONSTRUCTOR
 Game::Game(int _width, int _height)
-    : width(_width), height(_height), // play screen 
+    : width(_width), height(_height), // play screen
 	  squares(_height, vector<CellType>(_width, CELL_EMPTY)), // cell coordinates
       snake(*this, Position(_width/2, _height/2)),  // init snake positin in middle of play screen
       currentDirection(Direction::RIGHT),
@@ -31,52 +31,69 @@ Game::~Game()
 
 
 
-/*** 
+/***
  * PLEASE UPDATE THIS METHOD
- * 
+ *
  * When snake moves to a position,
  * if position belongs to BOARD or SNAKE body, status is GAME_OVER
  * if position is having CHERRY :
  * 			- score schoule be increased
  * 			- snake should eat cherry
  * 			- a new cherry should be randomly added
- * otherwise, this position should be assigned as cell of snake 
+ * otherwise, this position should be assigned as cell of snake
  *
  * Args:
  * 		pos (Position): position where the snake will move
- * 
+ *
  * Returns:
  * 		// none
- * 
+ *
 ***/
 
 void Game::snakeMoveTo(Position pos) {
 	//  START CODE HERE
-	//
-	//
-	//
-	//
+
+	CellType PosStatus = getCellType( pos );
+
+	if( (PosStatus == CELL_OFF_BOARD) || (PosStatus == CELL_SNAKE) )
+    {
+        status = GAME_OVER;
+    }
+    else
+    {
+        if( PosStatus == CELL_CHERRY)
+        {
+            score++;
+            snake.eatCherry();
+            addCherry();
+        }
+        else
+        {
+            setCellType( pos, CELL_SNAKE);
+        }
+    }
+
 	// END CODE HERE
 }
 
 
 /***
  * PLEASE UPDATE THIS METHOD
- * 
+ *
  * When all snake body leave a cell, set it as CELL_EMPTY
  * Args:
  * 		position (Position): position where snake will leave
  * Returns:
  * 		// none
- * 
+ *
  ***/
 void Game::snakeLeave(Position position)
 {
 	// Suggestion: use setCellType() method in Game class
 	// START CODE HERE
-	//  
-	//
-	//
+
+	setCellType( position, CELL_EMPTY );
+
 	// END CODE HERE
 }
 
@@ -90,52 +107,58 @@ void Game::processUserInput(Direction direction)
 
 /***
  * PLEASE REPLACE LINES MARKED WITH '// YOUR CODE HERE'
- * 
+ *
  * check whether the snake can move to the intended direction with the currect direction.
  * If current direction is UP or DOWN, the next direction should not be UP or DOWN
  * if current diection is LEFT or RIGHT, the next direction should not be LEFT or RIGHT
- * 
+ *
  * Args:
  * 		current (Direction): current direction of the snake
  * 		next (Direction): the intened direction that snake will move
  * Returns:
  * 		bool: whether the snake can ben changed the direction
- * 
+ *
  ***/
 bool Game::canChange(Direction current, Direction next) const {
-	if (current == UP || current == DOWN) 
-		return 0; // YOUR CODE HERE
-	return 0;// YOUR CODE HERE
+	if (current == UP || current == DOWN)
+        if(next == UP || next == DOWN)
+            return 0; // YOUR CODE HERE
+    if(current == LEFT || current == RIGHT)
+        if(next == LEFT || current == RIGHT)
+            return 0;
+	return 1;// YOUR CODE HERE
 }
 
 
 /***
  * PLEASE REPLACE LINES MARKED WITH '// YOUR CODE HERE'
- * 
- * Iterover the input queue from keyboard. 
+ *
+ * Iterover the input queue from keyboard.
  * For each input direction, check whether snake can move or not.
  * If the snake can move,  set currentDiection as this input direction.
  * Otherwise, go to the next input direction from input queue
- * 
+ *
  * Args:
  * 		// none
  * Returns:
  * 		// none
- * 
+ *
  ***/
 
 void Game::nextStep()
 {
 	while (!inputQueue.empty()) {
 		// get the input direction from input queue
-        Direction next ; // YOUR CODE HERE
+        Direction next = inputQueue.front(); // YOUR CODE HERE
 
 		// remove the front of input queue
         // YOUR CODE HERE
+        inputQueue.pop();
 
 		// check if snake can move to the next direction, set current direction as next
         if (canChange(currentDirection, next)) {
         	// YOUR CODE HERE
+        	currentDirection = next;
         	break;
 		}
     }
@@ -146,14 +169,14 @@ void Game::nextStep()
 
 /***
  * PLEASE REPLACE LINES MARKED WITH '// YOUR CODE HERE'
- * 
+ *
  * When snake have already eaten a cherry, please add new cherry inside the play screen with random position
- * 
+ *
  * Args:
  * 		// none
  * Returns:
  * 		// none
- * 
+ *
  ***/
 
 void Game::addCherry()
@@ -162,15 +185,18 @@ void Game::addCherry()
 		// init a random position inside the play screen (width, height)
 		// Suggestion: use rand() function
 
-        Position randomPos; // YOUR CODE HERE
-		
-		// check if the randomPos is EMPTY 
+        Position randomPos = { rand()%width, rand()%height }; // YOUR CODE HERE
+
+		// check if the randomPos is EMPTY
         if (getCellType(randomPos) == CELL_EMPTY) {
 
         	// assign the cherry position as randomPos, and set randomPos type as CELL_CHERRY
 
 			// YOUR CODE HERE
+			cherryPosition = randomPos;
+
 			// YOUR CODE HERE
+			setCellType( randomPos, CELL_CHERRY );
 
        		break;
         }
@@ -180,24 +206,29 @@ void Game::addCherry()
 
 /***
  * PLEASE UPDATE THIS METHOD
- * 
+ *
  * set cell of a position as intended type.
- * 
+ *
  * Args:
  * 		pos (Position): a chosen position
  * 		cellType (CellType): cell type of pos
  * Returns:
  * 		// none
- * 
+ *
  ***/
-void Game::setCellType(Position pos, CellType cellType) 
+void Game::setCellType(Position pos, CellType cellType)
 {
 	// if position is inside the play screen (width, height), set to the cellType.
 	// Otherwise, do nothing
 	// Suggestion: use pos.isInsideBox(...) in Position class
 	//
 	// START CODE HERE
-	//  
+
+	if( pos.isInsideBox(0, 0, width, height) )
+    {
+        squares[ pos.x ][ pos.y ] = cellType;
+    }
+
 	// END CODE HERE
 }
 

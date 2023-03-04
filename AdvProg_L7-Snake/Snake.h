@@ -19,7 +19,7 @@ struct SnakeNode
 class Snake
 {
     SnakeNode *head, *tail;
-    Game& game;    
+    Game& game;
     int cherry;
     int score;
 public:
