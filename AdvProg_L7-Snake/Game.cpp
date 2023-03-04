@@ -85,10 +85,8 @@ void Game::snakeLeave(Position position)
 {
 	// Suggestion: use setCellType() method in Game class
 	// START CODE HERE
-	CellType pos = getCellType(position);
-	if (pos != CELL_SNAKE) {
-		setCellType(position, CELL_EMPTY);
-	}
+	setCellType(position, CELL_EMPTY);
+	return;
 	// END CODE HERE
 }
 
@@ -185,12 +183,13 @@ void Game::addCherry()
 		// Suggestion: use rand() function
 
         Position randomPos; // YOUR CODE HERE
-		randomPos.x = rand() % width;
-		randomPos.y = rand() % height;
+		int posX = rand() % width;
+		int posY = rand() % height;
 		// check if the randomPos is EMPTY 
         if (getCellType(randomPos) == CELL_EMPTY) {
 
         	// assign the cherry position as randomPos, and set randomPos type as CELL_CHERRY
+			randomPos = (posX, posY);
 			cherryPosition = randomPos;
 			setCellType(randomPos, CELL_CHERRY);
 			// YOUR CODE HERE
