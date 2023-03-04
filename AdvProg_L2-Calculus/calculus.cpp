@@ -47,7 +47,7 @@ double mySqrt(double x) {
         exit(1);
     }
     else return sqrt(x);
-}
+
 
     
     return 0;
