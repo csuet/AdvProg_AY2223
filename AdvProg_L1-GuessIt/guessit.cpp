@@ -82,9 +82,6 @@ bool checkContinuePlaying(char isContinued) {
     if( isContinued == 'Y' ) {
         result = true;
     }
-    else {
-        result = false;
-    }
     return result;
 }
 
