@@ -40,10 +40,9 @@ double myCos(double x) {
 	const double PI_TEST = 3.14159265359;
 	double result = 0;
 	double term = 1;
-	double n = x * PI_TEST / 180;
 	int i = 0;
 	while (trituyetdoi(term) >= EPSILON) {
-		term = (mu(-1, i) * mu(n, 2 * i)) / giaithua(2 * i);
+		term = (mu(-1, i) * mu(x, 2 * i)) / giaithua(2 * i);
 		result += term;
 		i++;
 	}
@@ -54,10 +53,9 @@ double mySin(double x) {
 	const double PI_TEST = 3.14159265359;
 	double result = 0;
 	double term = 1;
-	double n = x * PI_TEST / 180;
 	int i = 0;
 	while (trituyetdoi(term) >= EPSILON) {
-		term = (mu(-1, i) * mu(n, 2 * i + 1)) / giaithua(2 * i + 1);
+		term = (mu(-1, i) * mu(x, 2 * i + 1)) / giaithua(2 * i + 1);
 		result += term;
 		i++;
 	}
