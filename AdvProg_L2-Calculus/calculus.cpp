@@ -20,7 +20,8 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+	double m = cos(x);
+    return m;
 }
 
 /***
@@ -31,7 +32,8 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+	double t = sin(x);
+    return t;
 }
 
 
@@ -44,9 +46,8 @@ double mySin(double x)
 double mySqrt(double x) {
     if (x < 0) {
         cout << "Invalid argument" << endl;
-        exit(1);
-    }
-
-    
-    return 0;
+        exit(1); 
+	}
+    double y = sqrt (x);
+    return y;
 }
