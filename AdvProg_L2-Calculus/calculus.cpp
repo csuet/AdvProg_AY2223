@@ -58,7 +58,7 @@ double mySqrt(double x) {
     }
     double ans = 10;
     for (int i = 1; i <= 20; i+=1)
-        ans = ans - (ans * ans - x) / 2 / ans;
+        ans = ans - (ans * ans - x) / 2 /ans;
     
     return ans;
 }
