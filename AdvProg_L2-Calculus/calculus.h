@@ -6,5 +6,4 @@
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
-
 #endif
