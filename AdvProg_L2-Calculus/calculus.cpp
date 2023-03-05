@@ -71,9 +71,6 @@ double mySin(double x) {
 ***/
 double mySqrt(double x) {
 	const double EPSILON = 0.001; // maximum difference between the expected result and returned result
-	if (x < 0) {
-		return NULL;
-	}
 	if (x == 0) {
 		return 0;
 	}
