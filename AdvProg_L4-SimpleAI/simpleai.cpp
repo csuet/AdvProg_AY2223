@@ -135,7 +135,7 @@ bool isCorrectChar(char ch, const string& mask)
 ***/
 bool isWholeWord(const string& mask)
 {
-    if (mask.find('_') != std::string::npos)
+    if (mask.find('_') != std::string::npos || mask.find('-') != std::string::npos)
         return false;
     return true;
 }
