@@ -20,9 +20,7 @@ using std::cin;
 int generateRandomNumber(const int min, const int max)
 {
     // TODO: Return a random integer number between min and max
-    srand(time(NULL));
-    int number = rand() % (max-min+1)+min;
-    return number;
+    return rand() % (max-min+1)+min;;
 }
 
 vector<string> readWordListFromFile(const string& filePath)
@@ -140,6 +138,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 void updateEnteredChars(const char ch, string& chars){
     // TODO: append the character ch is in end of the text chars
     chars.push_back(ch);
+    char.push_back(' ');
 }
 
 /***
@@ -150,7 +149,7 @@ void updateEnteredChars(const char ch, string& chars){
 ***/
 void updateIncorrectGuess(int& incorrectGuess){
     // TODO: increase the value of incorrectGuess by 1
-    incorrectGuess++;
+    ++incorrectGuess;
 }
 
 /***
@@ -180,12 +179,12 @@ void processData(const char ch, const string& word,
     if (isCharInWord(ch, word))
     {
         updateSecretWord(secretWord, ch, word);
-        updateEnteredChars(ch, chars);
+        updateEnteredChars(ch,correctChars);
     }
     else
     {
         updateIncorrectGuess(incorrectGuess);
-        updateEnteredChars(ch, incorrectChars);
+        updateEnteredChars(ch, incorrectChar    s);
     }
 }
 
