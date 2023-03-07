@@ -74,7 +74,7 @@ void Painter::randomColor()
     int r = rand() % 256;
     int g = rand() % 256;
     int b = rand() % 256;
-    this.color = { r, g, b };
+    this->color = { r, g, b };
 }
 
 
