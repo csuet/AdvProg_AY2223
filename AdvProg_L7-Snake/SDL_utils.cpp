@@ -16,7 +16,7 @@
 
 //*****************************************************
 // Các hàm chung về khởi tạo và huỷ SDL
-void logSDLError(std::ostream& os, 
+void logSDLError(std::ostream& os,
                  const std::string &msg, bool fatal)
 {
     os << msg << " Error: " << SDL_GetError() << std::endl;
@@ -27,19 +27,19 @@ void logSDLError(std::ostream& os,
 }
 
 void initSDL(SDL_Window* &window, SDL_Renderer* &renderer,
-	int screenWidth, int screenHeight, const char* windowTitle) 
+	int screenWidth, int screenHeight, const char* windowTitle)
 {
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
         logSDLError(std::cout, "SDL_Init", true);
 
     window = SDL_CreateWindow(windowTitle, SDL_WINDOWPOS_CENTERED,
        SDL_WINDOWPOS_CENTERED, screenWidth, screenHeight, SDL_WINDOW_SHOWN);
-    //window = SDL_CreateWindow(WINDOW_TITLE.c_str(), SDL_WINDOWPOS_CENTERED, 
+    //window = SDL_CreateWindow(WINDOW_TITLE.c_str(), SDL_WINDOWPOS_CENTERED,
     //   SDL_WINDOWPOS_CENTERED, screenWidth, screenHeight, SDL_WINDOW_FULLSCREEN_DESKTOP);
     if (window == nullptr) logSDLError(std::cout, "CreateWindow", true);
 
     //Khi thông thường chạy với môi trường bình thường ở nhà
-    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | 
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED |
                                               SDL_RENDERER_PRESENTVSYNC);
     //Khi chạy ở máy thực hành WinXP ở trường (máy ảo)
     //renderer = SDL_CreateSoftwareRenderer(SDL_GetWindowSurface(window));
@@ -83,7 +83,7 @@ void renderSplashScreen()
 
 void drawCell(SDL_Renderer* renderer, int left, int top, Position pos, SDL_Texture* texture)
 {
-	SDL_Rect cell; 
+	SDL_Rect cell;
 	cell.x = left + pos.x * CELL_SIZE + 5;
 	cell.y = top + pos.y * CELL_SIZE + 5;
 	cell.w = CELL_SIZE-10;
@@ -92,7 +92,7 @@ void drawCell(SDL_Renderer* renderer, int left, int top, Position pos, SDL_Textu
 }
 
 void drawCherry(SDL_Renderer* renderer, int left, int top, Position pos, Gallery* gallery)
-{	
+{
     drawCell(renderer, left, top, pos, gallery->getImage(PIC_CHERRY));
 }
 
@@ -100,7 +100,7 @@ void drawSnake(SDL_Renderer* renderer, int left, int top, vector<Position> pos, 
 {
 	// snake's head
 	drawCell(renderer, left, top, pos[pos.size()-1], gallery->getImage(PIC_SNAKE_HEAD));
-	
+
 	// snake's body
     for (int i = pos.size() - 2; i >= 0; i--) {
         SDL_Texture* texture = gallery->getImage(
@@ -134,7 +134,7 @@ void renderGamePlay(SDL_Renderer* renderer, const Game& game, Gallery* gallery)
 
     drawCherry(renderer, left, top, game.getCherryPosition(), gallery);
     drawSnake(renderer, left, top, game.getSnakePositions(), gallery);
-    
+
     SDL_RenderPresent(renderer);
 }
 
