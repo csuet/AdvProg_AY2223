@@ -185,11 +185,11 @@ void Game::addCherry()
         Position randomPos; // YOUR CODE HERE
 		int posX = rand() % width;
 		int posY = rand() % height;
+		randomPos = (posX, posY);
 		// check if the randomPos is EMPTY 
         if (getCellType(randomPos) == CELL_EMPTY) {
 
         	// assign the cherry position as randomPos, and set randomPos type as CELL_CHERRY
-			randomPos = (posX, posY);
 			cherryPosition = randomPos;
 			setCellType(randomPos, CELL_CHERRY);
 			// YOUR CODE HERE
