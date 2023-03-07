@@ -107,7 +107,13 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
 {
     char answer;
     //Write your code here
-    answer = findMostFrequentChar(countOccurrences(candidateWords),selectedChars);
+    int maxOccur = 0;
+    for (const auto& [a,b] : occurrences) {
+        if (selectedChars.count(a) == 0 && b > maxOccur) {
+            answer = a;
+            maxOccur = b;
+        }
+    }
     return answer;
 }
 
