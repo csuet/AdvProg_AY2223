@@ -127,7 +127,6 @@ bool isCorrectChar(char ch, const string& mask)
 
 /***
     Args:
-        mask (string): The response mask by the player
     Returns:
         answer (bool) : return False if the provided mask is not a whole word, True otherwise
         (Example: -False: g__d
