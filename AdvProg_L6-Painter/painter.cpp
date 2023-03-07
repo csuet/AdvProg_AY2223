@@ -23,8 +23,8 @@ const double PI = 3.14159265359;
 void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
-    x += numPixel * cos(angle * PI / 180.0);
-    y += numPixel * sin(angle * PI / 180.0);
+    x += (double)numPixel * round(cos(angle * PI / 180.0));
+    y += (double)numPixel * round(sin(angle * PI / 180.0));
 }
 
 /***
@@ -36,8 +36,8 @@ void Painter::jumpForward(int numPixel)
 void Painter::jumpBackward(int numPixel)
 {
     // TODO: jump the painter backward
-    x -= numPixel * cos(angle * PI / 180.0);
-    y -= numPixel * sin(angle * PI / 180.0);
+    x -= (double)numPixel * round(cos(angle * PI / 180.0));
+    y -= (double)numPixel * round(sin(angle * PI / 180.0));
 }
 
 
@@ -51,7 +51,7 @@ void Painter::turnLeft(double degree)
 {
     // TODO: rotate left the painter 
     angle += degree;
-    while(angle >= 360) angle -= 360;  
+    while(angle >= 360.0) angle -= 360.0;  
 }
 
 
@@ -65,7 +65,7 @@ void Painter::turnRight(double degree)
 {
     // TODO: rotate right the painter
     angle -= degree; 
-    while(angle < 0) angle += 360;  
+    while(angle < 0.0) angle += 360.0;  
 }
 
 /***  
