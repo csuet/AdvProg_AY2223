@@ -33,7 +33,7 @@ protected:
   }
 };
 
-
+// ss
 CPPUNIT_TEST_SUITE_REGISTRATION(Test);
 
 int main()
