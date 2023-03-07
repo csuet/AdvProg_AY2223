@@ -125,6 +125,7 @@ void Snake::eatCherry()
 {
 	/* YOUR CODE HERE */
     cherry ++;
+    return;
 }
 
 /*** 

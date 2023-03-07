@@ -53,12 +53,10 @@ Game::~Game()
 void Game::snakeMoveTo(Position pos) {
 	//  START CODE HERE
 	CellType ct = getCellType(pos);
-	if (ct == CELL_SNAKE|| ct == CELL_OFF_BOARD) {
+	if (ct == CELL_OFF_BOARD || ct == CELL_SNAKE) {
 		status = GAME_OVER;
 		return;
-	}
-
-	if (ct == CELL_CHERRY) {
+	} else if (ct == CELL_CHERRY) {
 		score ++;
 		snake.eatCherry();
 		addCherry();
@@ -114,18 +112,16 @@ void Game::processUserInput(Direction direction)
  ***/
 bool Game::canChange(Direction current, Direction next) const {
 	if (current == UP || current == DOWN) {
-		if (next == UP || next == DOWN) {
-			return false;
-		}
-	}
-
-	if (current == LEFT || current == RIGHT) {
 		if (next == LEFT || next == RIGHT) {
-			return false;
+			return true;
+		}
+	} else {
+		if (next == UP || next == DOWN) {
+			return true;
 		}
 	}
 
-	return true;
+	return false;
 }
 
 
@@ -190,8 +186,8 @@ void Game::addCherry()
         if (getCellType(randomPos) == CELL_EMPTY) {
 
         	// assign the cherry position as randomPos, and set randomPos type as CELL_CHERRY
-			cherryPosition = randomPos;
 			setCellType(randomPos, CELL_CHERRY);
+			cherryPosition = randomPos;
 			// YOUR CODE HERE
 			// YOUR CODE HERE
 
@@ -221,7 +217,7 @@ void Game::setCellType(Position pos, CellType cellType)
 	//
 	// START CODE HERE
 	if (pos.isInsideBox(0,0,width, height)) {
-		squares[pos.x][pos.y] = cellType;
+		squares[pos.y][pos.x] = cellType;
 	}
 	// END CODE HERE
 }
