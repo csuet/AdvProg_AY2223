@@ -23,6 +23,7 @@ void processData(const char ch, const string& word,
                 string& correctChars, 
                 int& incorrectGuess, string& incorrectChars);
 
+int generateRandomNumber(const int cap);
 int generateRandomNumber(const int min, const int max);
 bool isCharInWord(const char ch, const string& word);
 vector<string> readWordListFromFile(const string& filePath);
