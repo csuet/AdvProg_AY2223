@@ -66,7 +66,6 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
     string answer = wordList[index];
-
     for (size_t i = 0;i <= answer.length() - 1; i++) {
         if (answer[i] >= 'A' && answer[i] <= 'Z')
             answer[i] = tolower(answer[i]);
