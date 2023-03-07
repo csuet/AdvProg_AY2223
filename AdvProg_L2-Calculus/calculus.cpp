@@ -12,15 +12,26 @@ double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
 
+const double eps = 1e-8;
+
 /***
     Args:
         x (double): a number
     Returns:
         double: cosine of x
 ***/
-double myCos(double x) 
+double myCos(double x)
 {
-    return 0.0;
+    double res = 0;
+    int n = 0;
+    long long fact = 1;
+    do{
+       fact = fact * (2 * n - 1) * (2 * n);
+       if(fact < 1) fact = 1;
+       res += pow(-1, n) / fact * pow(x, 2 * n);
+       n ++;
+    }while(n < 10);
+    return res;
 }
 
 /***
@@ -31,7 +42,16 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double res = 0;
+    int n = 0;
+    long long fact = 1;
+    do{
+       fact *= (2 * n) * (2 * n + 1);
+       if(fact == 0) fact = 1;
+       res += pow(-1, n) / fact * pow(x, 2 * n + 1);
+       n ++;
+    }while(n < 10);
+    return res;
 }
 
 
@@ -46,7 +66,10 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
-    
-    return 0;
+    if(x == 0) return 0;
+    double res = x;
+    for(int _ = 10; _; _ --){
+       res = 0.5 * (res + x / res);
+    }
+    return res;
 }
