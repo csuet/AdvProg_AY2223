@@ -1,6 +1,7 @@
 #include <iostream>
 #include <ctime>
 #include <stdlib.h>
+#include <cctype>
 #include "hangman.h"
 
 using std::string;
@@ -73,7 +74,10 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
     string answer;
-    answer = wordList[index] ;
+    string s = wordList[index] ;
+    for ( int i = 0 ; i < (int)s.size() ; i++){
+        answer += tolower(s[i]) ;
+    }
     return answer;
 }
 
