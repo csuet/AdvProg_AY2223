@@ -24,4 +24,4 @@ const SDL_Color LINE_COLOR = {128, 128, 128};
 
 const double STEP_DELAY = 0.2;
 
-#endif 
+#endif
