@@ -23,8 +23,8 @@ const double PI = 3.14159265359;
 void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
-    x += (double)numPixel * round(cos(angle * PI / 180.0));
-    y += (double)numPixel * round(sin(angle * PI / 180.0));
+    x += round((double)numPixel * cos(angle * PI / 180.0));
+    y += round((double)numPixel * sin(angle * PI / 180.0));
 }
 
 /***
@@ -36,8 +36,8 @@ void Painter::jumpForward(int numPixel)
 void Painter::jumpBackward(int numPixel)
 {
     // TODO: jump the painter backward
-    x -= (double)numPixel * round(cos(angle * PI / 180.0));
-    y -= (double)numPixel * round(sin(angle * PI / 180.0));
+    x -= round((double)numPixel * cos(angle * PI / 180.0));
+    y -= round((double)numPixel * sin(angle * PI / 180.0));
 }
 
 
