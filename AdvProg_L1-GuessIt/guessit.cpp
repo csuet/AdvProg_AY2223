@@ -8,26 +8,28 @@ using namespace std;
 
 /***
     Args:
-        
+
     Returns:
         number (int) : random number in range 1-100
 ***/
 int generateRandomNumber() {
     // TODO: Return the random number in range 1 to 100
-    return 100;
+    return rand() % 100 + 1;
 }
 
 
 /***
     Args:
-        
+
     Returns:
         number (int) : the number that player guessed
 ***/
 int getPlayerGuess() {
     // TODO: Ask the player guest and return the player's number
-
-    return 1;
+    int guess;
+    cout << endl << "Enter your guess: ";
+    cin >> guess;
+    return guess;
 }
 
 
@@ -39,14 +41,16 @@ int getPlayerGuess() {
         answer (string) : answer of computer after checking result
 ***/
 string getAnswer(int number, int randomNumber) {
-    /*** 
+    /***
         TODO: check number with randomNumber and return the result.
               If number is higher than randomNumber, the answer is "Your number is higher."
               If number is lower than randomNumber, the answer is "Your number is lower."
               If number is equal randomNumber, the answer is "Congratulation! You win."
     ***/
     string answer;
-
+    if (number > randomNumber) answer = "Your number is higher.";
+    if (number < randomNumber) answer = "Your number is lower.";
+    if (number == randomNumber) answer = "Congratulation! You win.";
     return answer;
 }
 
@@ -59,8 +63,9 @@ string getAnswer(int number, int randomNumber) {
 ***/
 bool checkSuccess(string answer) {
     // TODO: return the result after checking that player guessed right or wrong
-    
-    return true;
+    if (answer[0] == 'C')
+        return true;
+    return 0;
 }
 
 
@@ -72,22 +77,23 @@ bool checkSuccess(string answer) {
 ***/
 bool checkContinuePlaying(char isContinued) {
     // TODO: return result after checking player continue playing or not
-    bool result = false;
+    //bool result = false;
 
-    return result;
+    return (isContinued == 'y' || isContinued == 'Y');
 }
 
 
 /***
     Args:
-        
+
     Returns:
         isContinues (char) : player's choice (continue playing or not)
 ***/
 char getPlayerOpinion() {
     // TODO: Ask the player about continue playing and return the player's choice
     char isContinued;
-
+    //cout << "\nDo you want to continue? (y/n) ";
+    cin >> isContinued;
     return isContinued;
 }
 
@@ -96,7 +102,7 @@ void playGuessIt() {
     int randomNumber = generateRandomNumber();
     int number;
     string answer;
-    
+
     do {
         number = getPlayerGuess();
         answer = getAnswer(number, randomNumber);
