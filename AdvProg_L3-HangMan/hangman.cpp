@@ -69,7 +69,7 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 
     for (size_t i = 0;i <= answer.length() - 1; i++) {
         if (answer[i] >= 'A' && answer[i] <= 'Z')
-            answer[i] = char(answer[i] - 'A' + 'a');
+            answer[i] = tolower(answer[i]);
     }
 
     return answer;
