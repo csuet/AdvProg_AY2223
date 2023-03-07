@@ -1,6 +1,6 @@
 #include <iostream>
 #include "hello.h"
-#include "SDL2/SDL.h"
+#include "SDL.h"
 using namespace std;
 
 void convert(string& s) {
