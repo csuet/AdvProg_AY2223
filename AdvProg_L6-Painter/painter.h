@@ -35,7 +35,7 @@ class Painter
         SDL_Renderer *renderer;
 
     public:
-    Painter();
+    Painter() = default;
 	Painter(SDL_Window* window, SDL_Renderer *renderer);
         void setColor(SDL_Color color);
         SDL_Color getColor() { return color; }
