@@ -6,88 +6,88 @@
 using namespace std;
 
 
-/***
-    Args:
-        
-    Returns:
-        number (int) : random number in range 1-100
-***/
 int generateRandomNumber() {
-    // TODO: Return the random number in range 1 to 100
-    return 100;
+    srand(time(NULL));
+    int randomNumber = rand() % 100 + 1;
+    return randomNumber;
 }
 
 
-/***
-    Args:
-        
-    Returns:
-        number (int) : the number that player guessed
-***/
 int getPlayerGuess() {
+<<<<<<< HEAD
+    cout << "PlayerGuess: ";
+    int x; cin >> x;
+    return x;
+=======
     // TODO: Ask the player guest and return the player's number
-
+    cout << "Enter your guess: ";
+    int guess; cin >> guess;
     return 1;
+>>>>>>> 7e1e40f66b65971f186785a19819915f818db57a
 }
 
 
-/***
-    Args:
-        number (int): answer number from player
-        randomNumber (int): the true number
-    Returns:
-        answer (string) : answer of computer after checking result
-***/
 string getAnswer(int number, int randomNumber) {
-    /*** 
-        TODO: check number with randomNumber and return the result.
-              If number is higher than randomNumber, the answer is "Your number is higher."
-              If number is lower than randomNumber, the answer is "Your number is lower."
-              If number is equal randomNumber, the answer is "Congratulation! You win."
-    ***/
     string answer;
-
+<<<<<<< HEAD
+    if(number > randomNumber) 
+    {
+        answer = "Your number is higher.";
+    }
+    else if(number > randomNumber) 
+    {
+=======
+    if(number > randomNumber) {
+        answer = "Your number is higher.";
+    }
+    else if(number < randomNumber) {
+>>>>>>> 7e1e40f66b65971f186785a19819915f818db57a
+        answer = "Your number is lower.";
+    }
+    else {
+        answer = "Congratulation! You win.";
+    }
     return answer;
 }
 
 
-/***
-    Args:
-        answer (string): answer from computer after compare numbers
-    Returns:
-        result (bool) : player win or not
-***/
 bool checkSuccess(string answer) {
+<<<<<<< HEAD
+    if(answer == "Congratulation! You win.") {
+        return true;
+    }
+    else {
+        return false;
+    }
+=======
     // TODO: return the result after checking that player guessed right or wrong
-    
+    if(answer != "Congratulation! You win.") return false;
     return true;
+>>>>>>> 7e1e40f66b65971f186785a19819915f818db57a
 }
 
 
-/***
-    Args:
-        isContinued (char): player's choice
-    Returns:
-        result (bool) : continue playing or not
-***/
 bool checkContinuePlaying(char isContinued) {
+<<<<<<< HEAD
+    return (isContinued == "Y" || isContinued == "y");
+=======
     // TODO: return result after checking player continue playing or not
     bool result = false;
-
     return result;
+>>>>>>> 7e1e40f66b65971f186785a19819915f818db57a
 }
 
 
-/***
-    Args:
-        
-    Returns:
-        isContinues (char) : player's choice (continue playing or not)
-***/
 char getPlayerOpinion() {
-    // TODO: Ask the player about continue playing and return the player's choice
+<<<<<<< HEAD
     char isContinued;
-
+    cout << "Continue playing ?(Y/N)\n";
+=======
+    // TODO: Ask the player about continue playing and return the player's choice
+    char isContinued; 
+    cout << "Continue playing?" << endl;
+>>>>>>> 7e1e40f66b65971f186785a19819915f818db57a
+    cin >> isContinued;
     return isContinued;
 }
 
