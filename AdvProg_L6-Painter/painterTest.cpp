@@ -22,7 +22,7 @@ bool verifySetColor(SDL_Color color) {
     SDL_Window *window;
     SDL_Renderer *renderer;
     SDL_Color color1 = {0, 0, 0};
-    initSDL(&window, &renderer);
+    //initSDL(&window, &renderer);
     Painter painter(window, renderer);
     painter.setColor(color);
     SDL_GetRenderDrawColor(painter.getRenderer(), &(color1.r), &(color1.g), &(color1.b), &(color1.a));
@@ -36,7 +36,7 @@ bool verifySetColor(SDL_Color color) {
 bool verifyJumpForward(int numPixel, double angle, int curX, int curY, int diffX, int diffY) {
     SDL_Window *window;
     SDL_Renderer *renderer;
-    initSDL(&window, &renderer);
+    //initSDL(&window, &renderer);
     Painter painter(window, renderer);
     painter.setPosition(curX, curY);
     painter.setAngle(angle);
@@ -56,7 +56,7 @@ bool verifyJumpForward(int numPixel, double angle, int curX, int curY, int diffX
 bool verifyJumpBackward(int numPixel, double angle, int curX, int curY, int diffX, int diffY) {
     SDL_Window *window;
     SDL_Renderer *renderer;
-    initSDL(&window, &renderer);
+    //initSDL(&window, &renderer);
     Painter painter(window, renderer);
     painter.setPosition(curX, curY);
     painter.setAngle(angle);
@@ -76,7 +76,7 @@ bool verifyJumpBackward(int numPixel, double angle, int curX, int curY, int diff
 bool verifyTurnLeft(double degree, double curAngle, double expectedAngle) {
     SDL_Window *window;
     SDL_Renderer *renderer;
-    initSDL(&window, &renderer);
+    //initSDL(&window, &renderer);
     Painter painter(window, renderer);
     painter.setAngle(curAngle);
     painter.turnLeft(degree);
@@ -93,7 +93,7 @@ bool verifyTurnLeft(double degree, double curAngle, double expectedAngle) {
 bool verifyTurnRight(double degree, double curAngle, double expectedAngle) {
     SDL_Window *window;
     SDL_Renderer *renderer;
-    initSDL(&window, &renderer);
+    //initSDL(&window, &renderer);
     Painter painter(window, renderer);
     painter.setAngle(curAngle);
     painter.turnRight(degree);
@@ -110,7 +110,7 @@ bool verifyTurnRight(double degree, double curAngle, double expectedAngle) {
 bool verifyRandomColor() {
     SDL_Window *window;
     SDL_Renderer *renderer;
-    initSDL(&window, &renderer);
+    //initSDL(&window, &renderer);
     Painter painter(window, renderer);
     painter.randomColor();
     SDL_Color color = painter.getColor();
