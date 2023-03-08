@@ -51,6 +51,7 @@ Game::~Game()
 ***/
 
 void Game::snakeMoveTo(Position pos) {
+    CellType posCell = getCellType(pos);
     if (CELL_OFF_BOARD == getCellType(pos) || CELL_SNAKE == getCellType(pos))
     {
         status = GAME_OVER;
@@ -200,7 +201,7 @@ void Game::setCellType(Position pos, CellType cellType)
 	// Suggestion: use pos.isInsideBox(...) in Position class
 	if (pos.isInsideBox(0, 0, width, height))
 	{
-	    squares[pos.x][pos.y] = cellType;
+	    squares[pos.y][pos.x] = cellType;
 	}
 }
 
