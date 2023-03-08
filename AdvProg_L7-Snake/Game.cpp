@@ -57,7 +57,7 @@ void Game::snakeMoveTo(Position pos) {
 	//
 	//
 	// END CODE HERE
-	if( !pos.isInsideBox(0,0,width,height) || getCellType(pos) == CELL_SNAKE )
+	if( !pos.isInsideBox(0,0,width,height) || getCellType(pos) == CELL_OFF_BOARD || getCellType(pos) == CELL_SNAKE )
 	{
 		status = GAME_OVER;
 	}
