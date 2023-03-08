@@ -9,9 +9,11 @@
 void Painter::setColor(SDL_Color color) 
 { 
     // TODO: set the color value for the Painter and set Render Draw Color
+    this->color = color;
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 }
 
-
+const double PI = 3.14159265359;
 /***
     Args: numPixel (int): number of pixel for jumping forward
         
@@ -21,8 +23,9 @@ void Painter::setColor(SDL_Color color)
 void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
+    x += round((double)numPixel * cos(angle * PI / 180.0));
+    y -= round((double)numPixel * sin(angle * PI / 180.0));
 }
-
 
 /***
     Args: numPixel (int): number of pixel for jumping backward
@@ -33,6 +36,8 @@ void Painter::jumpForward(int numPixel)
 void Painter::jumpBackward(int numPixel)
 {
     // TODO: jump the painter backward
+    x -= round((double)numPixel * cos(angle * PI / 180.0));
+    y += round((double)numPixel * sin(angle * PI / 180.0));
 }
 
 
@@ -44,7 +49,9 @@ void Painter::jumpBackward(int numPixel)
 ***/       
 void Painter::turnLeft(double degree)
 {
-    // TODO: rotate left the painter   
+    // TODO: rotate left the painter 
+    angle += degree;
+    while(angle >= 360.0) angle -= 360.0;  
 }
 
 
@@ -56,7 +63,9 @@ void Painter::turnLeft(double degree)
 ***/     
 void Painter::turnRight(double degree)
 {
-    // TODO: rotate right the painter   
+    // TODO: rotate right the painter
+    angle -= degree; 
+    while(angle >= 360.0) angle -= 360.0;
 }
 
 /***  
@@ -68,6 +77,8 @@ void Painter::turnRight(double degree)
 void Painter::randomColor()
 {
     // TODO: set random color    
+    SDL_Color randColor = {(Uint8)(rand() % 256), (Uint8)(rand() % 256), (Uint8)(rand() % 256)};
+    setColor(randColor);
 }
 
 
@@ -166,4 +177,6 @@ void Painter::moveBackward(int numPixel)
 {
     moveForward(-numPixel);
 }
+
+// int main(int argc, char* argv[]) { return 0; }
 
