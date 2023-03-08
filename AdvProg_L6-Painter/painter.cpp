@@ -24,7 +24,7 @@ void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
     x += round((double)numPixel * cos(angle * PI / 180.0));
-    y += round((double)numPixel * sin(angle * PI / 180.0));
+    y -= round((double)numPixel * sin(angle * PI / 180.0));
 }
 
 /***
@@ -37,7 +37,7 @@ void Painter::jumpBackward(int numPixel)
 {
     // TODO: jump the painter backward
     x -= round((double)numPixel * cos(angle * PI / 180.0));
-    y -= round((double)numPixel * sin(angle * PI / 180.0));
+    y += round((double)numPixel * sin(angle * PI / 180.0));
 }
 
 
