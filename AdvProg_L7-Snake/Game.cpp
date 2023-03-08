@@ -95,7 +95,7 @@ void Game::snakeLeave(Position position)
 	// END CODE HERE
 	setCellType(position, CELL_EMPTY);
 }
-
+// 
 
 // DO NOT change this method
 void Game::processUserInput(Direction direction)
