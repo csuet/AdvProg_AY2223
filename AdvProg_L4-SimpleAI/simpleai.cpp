@@ -14,7 +14,7 @@ int readWordLen()
     cout << endl << "Enter the number characters of your secret word: ";
     cin >> wordLen;
     return wordLen;
-    
+
 }
 
 /***
@@ -28,6 +28,12 @@ vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
 {
     vector<string> answer;
     //Write your code here
+    int limit = vocabulary.size();
+    for(int i = 0;i<limit;i++){
+        if(vocabulary[i].length() == wordLen){
+            answer.push_back(vocabulary[i]);
+        }
+    }
     return answer;
 }
 
@@ -42,12 +48,15 @@ char nextCharWhenWordIsNotInDictionary(const set<char>& selectedChars)
 {
     char answer;
     //Write your code here
+    answer = 'a';
+    while(selectedChars.find(answer) != selectedChars.end())
+        answer++;
     return answer;
 }
 
 /***
     Args:
-        candidateWords (vector<string>): The candidate words for the current given string 
+        candidateWords (vector<string>): The candidate words for the current given string
     Returns:
         answer (map) : The map which count the occurences of character in the set of candidate words
 ***/
@@ -56,6 +65,17 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
 {
     map<char, int> answer;
     //Write your code here
+    int limit_v = candidateWords.size();
+    for(int i = 0;i<limit_v;i++){
+        int limit_s = candidateWords[i].length();
+        for(int j = 0;j<limit_s;j++){
+            if(answer[candidateWords[i][j]] == 0){
+                answer[candidateWords[i][j]] = 1;
+            }else{
+                answer[candidateWords[i][j]]++;
+            }
+        }
+    }
     return answer;
 }
 
@@ -70,13 +90,22 @@ map<char, int> countOccurrences(const vector<string>& candidateWords)
 char findMostFrequentChar(const map<char, int>& occurrences, const set<char>& selectedChars)
 {
     char answer;
+    int max = 0;
+    auto it = occurrences.begin();
+    for(;it != occurrences.end();it++){
+        if(it->second > max && selectedChars.find(it->first) == selectedChars.end())
+        {
+            max = it->second;
+            answer = it->first;
+        }
+    }
     //Write your code here
     return answer;
 }
 
 /***
     Args:
-        candidateWords (vector<string>): The candidate words for the current given string 
+        candidateWords (vector<string>): The candidate words for the current given string
         selectedChars (set<char>): The predicted characters
     Returns:
         answer (char) : The most suitable character for prediction
@@ -86,6 +115,8 @@ char findBestChar(const vector<string>& candidateWords, const set<char>& selecte
 {
     char answer;
     //Write your code here
+    map<char,int> occurences = countOccurrences(candidateWords);
+    answer = findMostFrequentChar(occurences,selectedChars);
     return answer;
 }
 
@@ -109,6 +140,11 @@ string getWordMask(char nextChar)
 bool isCorrectChar(char ch, const string& mask)
 {
     bool answer;
+    answer = false;
+    for(auto i : mask)
+    {
+        if(i == ch) answer = true;
+    }
     //Write your code here
     return answer;
 }
@@ -124,6 +160,11 @@ bool isCorrectChar(char ch, const string& mask)
 bool isWholeWord(const string& mask)
 {
      bool answer;
+     answer = true;
+     for(auto i : mask)
+     {
+         if(i == '_' || i == '-') answer = false;
+     }
     //Write your code here
     return answer;
 }
@@ -140,9 +181,15 @@ bool isWholeWord(const string& mask)
                  - True: mask(-ood), char 'd'  vs word(good)
 
 ***/
-bool wordConformToMask(const string& word, const string& mask, char ch) 
+bool wordConformToMask(const string& word, const string& mask, char ch)
 {
     bool answer;
+    answer = true;
+    size_t limit = mask.length();
+    for(size_t i =  0; i < limit;i++)
+    {
+        if(mask[i] != '-' && mask[i] != word[i]) answer = false;
+    }
     //Write your code here
     return answer;
 }
@@ -162,6 +209,10 @@ bool wordConformToMask(const string& word, const string& mask, char ch)
 vector<string> filterWordsByMask(const vector<string>& words, const string& mask, char ch)
 {
     vector<string> answer;
+    for(auto word : words)
+    {
+        if(wordConformToMask(word,mask,ch)) answer.push_back(word);
+    }
     //Write your code here
     return answer;
 }
