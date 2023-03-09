@@ -1,11 +1,11 @@
-#include <iostream>
 #include "hangman.h"
+#include <iostream>
 
+using std::cin;
+using std::domain_error;
+using std::ifstream;
 using std::string;
 using std::vector;
-using std::ifstream;
-using std::domain_error;
-using std::cin;
 
 /***
     Args:
@@ -17,24 +17,26 @@ using std::cin;
 int generateRandomNumber(const int min, const int max)
 {
     // TODO: Return a random integer number between min and max
-    return 1;
+    return rand() % (max - min + 1) + min;
 }
 
-vector<string> readWordListFromFile(const string& filePath)
+vector<string> readWordListFromFile(const string &filePath)
 {
     vector<string> wordList;
     string word;
-    ifstream wordFile (filePath);
-    if (!wordFile.is_open()) {
+    ifstream wordFile(filePath);
+    if (!wordFile.is_open())
+    {
         throw domain_error("Unable to open file");
     }
 
-    //while ( getline (wordFile, word) ){  // Thong thuong doc tung line. 
-                                           // Chuong trinh nay cung chay.
-    while (wordFile >> word) {  // Nhung voi chuong trinh nay, doc tung word cung duoc
-                                // Tuc ca 2 cach doc deu chay.
+    // while ( getline (wordFile, word) ){  // Thong thuong doc tung line.
+    //  Chuong trinh nay cung chay.
+    while (wordFile >> word)
+    { // Nhung voi chuong trinh nay, doc tung word cung
+      // duoc Tuc ca 2 cach doc deu chay.
         wordList.push_back(word);
-        //cout << word << '\n';
+        // cout << word << '\n';
     }
     wordFile.close();
 
@@ -48,10 +50,10 @@ vector<string> readWordListFromFile(const string& filePath)
     Returns:
         result (bool) : the character ch is in the word or not.
 ***/
-bool isCharInWord(const char ch, const string& word)
+bool isCharInWord(const char ch, const string &word)
 {
     // TODO: return true if ch is in word else return false
-    return true;
+    return word.find_first_of(ch) != string::npos;
 }
 
 /***
@@ -59,13 +61,15 @@ bool isCharInWord(const char ch, const string& word)
         wordList (vector<string>): A list of words
         index (int): an integer number
     Returns:
-        answer (string) : the lowercase word is in the position index of wordList
+        answer (string) : the lowercase word is in the position index of
+wordList
 ***/
-string chooseWordFromList(const vector<string>& wordList, int index) 
+string chooseWordFromList(const vector<string> &wordList, int index)
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
-    string answer;
-
+    string answer = wordList[index];
+    for (int i = 0; i < answer.length(); i++)
+        answer[i] = tolower(answer[i]);
     return answer;
 }
 
@@ -75,17 +79,18 @@ string chooseWordFromList(const vector<string>& wordList, int index)
     Returns:
         secretWord (string): answerWord in hidden form (form of ---)
 ***/
-string generateHiddenCharacters(string answerWord){
-    // TODO: Based on answerWord's length, generate hidden characters in form of "---"
-    string secretWord;
-
-    return secretWord;
+string generateHiddenCharacters(string answerWord)
+{
+    // TODO: Based on answerWord's length, generate hidden characters in form of
+    // "---"
+    return string(answerWord.length(), '-');
 }
 
-char getInputCharacter() {
+char getInputCharacter()
+{
     char ch;
     cin >> ch;
-    return tolower(ch); 
+    return tolower(ch);
 }
 
 /***
@@ -96,9 +101,16 @@ char getInputCharacter() {
     Returns:
         void
 ***/
-void updateSecretWord(string& secretWord, const char ch, const string& word)
+void updateSecretWord(string &secretWord, const char ch, const string &word)
 {
     // TODO: Update the secret word if the character ch is in the answer word.
+    for (int i = 0; i < word.length(); i++)
+    {
+        if (word[i] == ch)
+        {
+            secretWord[i] = ch;
+        }
+    }
 }
 
 /***
@@ -108,18 +120,22 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
     Returns:
         void
 ***/
-void updateEnteredChars(const char ch, string& chars){
+void updateEnteredChars(const char ch, string &chars)
+{
     // TODO: append the character ch is in end of the text chars
+    chars += ch;
+    chars += " ";
 }
 
 /***
     Args:
-        incorrectGuess (int): a number that store the number of player's wrong guess
-    Returns:
-        void
+        incorrectGuess (int): a number that store the number of player's wrong
+guess Returns: void
 ***/
-void updateIncorrectGuess(int& incorrectGuess){
+void updateIncorrectGuess(int &incorrectGuess)
+{
     // TODO: increase the value of incorrectGuess by 1
+    incorrectGuess++;
 }
 
 /***
@@ -128,15 +144,14 @@ void updateIncorrectGuess(int& incorrectGuess){
         word (string): answer word that play needs to guess
         secretWord (string): answer word in hidden form
         correctChars (string): a string that stores correct inputs of player
-        incorrectGuess (int): a number that stores the number of player's wrong guess
-        incorrectChars (string): a string that stores incorrect inputs of player
+        incorrectGuess (int): a number that stores the number of player's wrong
+guess incorrectChars (string): a string that stores incorrect inputs of player
     Returns:
         void
 ***/
-void processData(const char ch, const string& word, 
-                string& secretWord, 
-                string& correctChars, 
-                int& incorrectGuess, string& incorrectChars)
+void processData(const char ch, const string &word, string &secretWord,
+                 string &correctChars, int &incorrectGuess,
+                 string &incorrectChars)
 {
     /*** TODO
         If ch in word:
@@ -146,5 +161,14 @@ void processData(const char ch, const string& word,
             update incorrectGuess: call updateIncorrectGuess() function
             update incorrectChars: call updateEnteredChars() function
     ***/
+    if (isCharInWord(ch, word))
+    {
+        updateSecretWord(secretWord, ch, word);
+        updateEnteredChars(ch, correctChars);
+    }
+    else
+    {
+        updateIncorrectGuess(incorrectGuess);
+        updateEnteredChars(ch, incorrectChars);
+    }
 }
-
