@@ -28,6 +28,11 @@ vector<string> filterWordsByLen(int wordLen, const vector<string>& vocabulary)
 {
     vector<string> answer;
     //Write your code here
+    for (auto it = vocabulary.begin();it != vocabulary.end();++it){
+        int len = *it.size();
+        if (len == wordLen)
+            answer.push_back(*it);
+    }
     return answer;
 }
 
