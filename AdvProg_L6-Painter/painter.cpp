@@ -6,14 +6,16 @@
     Returns:
         None
 ***/
-void Painter::setColor(SDL_Color color) 
+void Painter::setColor(SDL_Color color ) 
 { 
     // TODO: set the color value for the Painter and set Render Draw Color
+    this->color = color ;
+SDL_SetRenderDrawColor ( renderer , color.g , color.b, color.r , 0);
 }
 
 
 /***
-    Args: numPixel (int): number of pixel for jumping forward
+    Args: numPixel (int): number of pixel for jumping forward :len tren
         
     Returns:
         None
@@ -21,30 +23,37 @@ void Painter::setColor(SDL_Color color)
 void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
+    double rad = angle /180 *M_PI;
+    x += cos(rad) * numPixel;
+    y -= (sin(rad) *numPixel);
 }
 
 
 /***
-    Args: numPixel (int): number of pixel for jumping backward
+    Args: numPixel (int): number of pixel for jumping backward : lui xuong
         
     Returns:
         None
 ***/
 void Painter::jumpBackward(int numPixel)
 {
-    // TODO: jump the painter backward
+    //TODO: jump the painter backward
+jumpForward(-numPixel);
 }
 
 
 /***
-    Args: degree (double): the value of rotation angle
+    Args: degree (double): the value of rotation angle : goc quay
         
     Returns:
         None
 ***/       
 void Painter::turnLeft(double degree)
 {
-    // TODO: rotate left the painter   
+    // TODO: rotate left the painter 
+    angle += degree; 
+    if ( angle > 0 ) angle = angle - floor ( angle/360) * 360;
+else angle = angle - ceil ( angle/360) *360;
 }
 
 
@@ -56,7 +65,10 @@ void Painter::turnLeft(double degree)
 ***/     
 void Painter::turnRight(double degree)
 {
-    // TODO: rotate right the painter   
+    // TODO: rotate right the painter  
+    angle -= degree;
+    if ( angle < 0 ) angle = angle - ceil(angle/360) *360;
+    else angle = angle - floor ( angle/360) *360;
 }
 
 /***  
@@ -67,7 +79,12 @@ void Painter::turnRight(double degree)
 ***/
 void Painter::randomColor()
 {
-    // TODO: set random color    
+    // TODO: set random color 
+    Uint8 r = rand() %256;
+    Uint8 b = rand() % 256;
+    Uint8 g = rand() % 256;
+    SDL_Color color = {r , b , g};
+    setColor(color);
 }
 
 
