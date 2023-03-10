@@ -123,7 +123,6 @@ bool Game::canChange(Direction current, Direction next) const {
 		return false; // YOUR CODE HERE
 	if( (current ==LEFT	|| current == RIGHT) && (next == LEFT || next == RIGHT ) )
 		return false;
-		
 	return true;// YOUR CODE HERE
 }
 
@@ -253,5 +252,7 @@ int Game::getHeight(){
 Snake Game::getSnake(){
 	return snake;
 }
+
+
 
 
