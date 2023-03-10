@@ -46,7 +46,7 @@ string getAnswer(int number, int randomNumber) {
               If number is equal randomNumber, the answer is "Congratulation! You win."
     ***/
     string answer;
-
+    fff
     return answer;
 }
 
