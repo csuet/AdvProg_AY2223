@@ -72,7 +72,7 @@ jobs:
           ./configure
           make
           make test
-
+  
   # AdvProg_L2_Calculus
   check_AdvProg_L2:
     needs: get_changed_files
