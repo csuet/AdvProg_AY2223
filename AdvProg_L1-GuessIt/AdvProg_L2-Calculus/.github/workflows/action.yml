@@ -1,0 +1,24 @@
+name: C/C++ CI
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths-ignore:
+      - '.github/workflows/**'
+      - '**/calculusTest.cpp'
+jobs:
+  calculus_job:
+    runs-on: ubuntu-latest
+    name: Calculus Job
+    steps:
+      - uses: actions/checkout@v2
+      - name: update
+        run: sudo apt-get update
+      - name: install cppunit
+        run: sudo apt install -y libcppunit-dev
+      - name: configure
+        run: ./configure
+      - name: make
+        run: make
+      - name: make test
+        run: make test
