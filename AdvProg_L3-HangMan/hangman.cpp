@@ -119,11 +119,11 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 ***/
 void updateEnteredChars(const char ch, string& chars){
     chars += ch ;
-    chars += ' ' ; 
+    chars += ' ';
     // TODO: append the character ch is in end of the text chars
 }
   
-  
+
 /***
     Args:
         incorrectGuess (int): a number that store the number of player's wrong guess
