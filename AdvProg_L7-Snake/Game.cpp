@@ -184,7 +184,6 @@ void Game::addCherry()
 
 		// check if the randomPos is EMPTY 
         if (getCellType(randomPos) == CELL_EMPTY) {
-
         	// assign the cherry position as randomPos, and set randomPos type as CELL_CHERRY
 			setCellType(randomPos, CELL_CHERRY);
        		break;
