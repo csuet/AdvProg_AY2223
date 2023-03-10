@@ -57,7 +57,6 @@ bool isCharInWord(const char ch, const string& word)
     }
     return false;
 }
-
 /***
     Args:
         wordList (vector<string>): A list of words
