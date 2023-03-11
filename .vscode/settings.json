@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "cmath": "cpp",
+        "stdexcept": "cpp",
+        "xstring": "cpp"
+    }
+}
