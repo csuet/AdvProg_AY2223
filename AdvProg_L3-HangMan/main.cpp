@@ -37,16 +37,16 @@ int main()
     int incorrectGuess = 0;
     string correctChars = "";
     string incorrectChars = "";
-    
-    printScreen(word, secretWord, correctChars, incorrectGuess, incorrectChars); 
-    
+
+    printScreen(word, secretWord, correctChars, incorrectGuess, incorrectChars);
+
     do {
         char ch = getInputCharacter();
 
-        processData(ch, word, secretWord, 
+        processData(ch, word, secretWord,
                     correctChars, incorrectGuess, incorrectChars);
-        
-        printScreen(word, secretWord, correctChars, incorrectGuess, incorrectChars); 
+
+        printScreen(word, secretWord, correctChars, incorrectGuess, incorrectChars);
 
     } while (secretWord != word && incorrectGuess != MAX_MISTAKES-1);
 
