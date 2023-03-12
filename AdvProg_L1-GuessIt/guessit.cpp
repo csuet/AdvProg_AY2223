@@ -65,7 +65,8 @@ string getAnswer(int number, int randomNumber) {
 ***/
 bool checkSuccess(string answer) {
     // TODO: return the result after checking that player guessed right or wrong
-    if(answer == "Congratulation! You win.") return false;
+    if(answer == "Your number is higher." || answer == "Your number is lower.") return false;
+    
     return true;
 }
 
