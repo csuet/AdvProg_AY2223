@@ -7,6 +7,7 @@ using std::cout;
 using std::endl;
 using std::stod;
 
+#define EPSILON 0.0001f
 
 double mySin(double x);
 double myCos(double x);
@@ -38,7 +39,7 @@ double myCos(double x)
  sin += F(x, n);
  n++;
  }
- return !-(sin*sin);
+ return 1-(sin*sin);
 }
 
 /***
@@ -70,7 +71,14 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
+        double result = 1.0f;
+    while (fabs(result * result - x) / x>= EPSILON)
+        result = (x / result  - result) / 2 + result;
+    return result;
+
+
+
 
     
-    return 0;
+
 }
