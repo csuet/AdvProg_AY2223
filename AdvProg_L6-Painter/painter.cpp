@@ -41,9 +41,9 @@ void Painter::jumpBackward(int numPixel)
     x -= cos(rangle()) * numPixel;
 }
 
-void reformat_degree(double degree) {
-    while (degree >= 360) degree -= 360;
-    if (degree < 0) degree += 360;
+void reformat_degree(double &degree) {
+    while (round(degree) >= 360) degree -= 360;
+    if (round(degree) < 0) degree += 360;
 }
 
 
