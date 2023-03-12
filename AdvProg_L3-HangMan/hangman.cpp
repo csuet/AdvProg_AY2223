@@ -10,9 +10,9 @@ using std::domain_error;
 using std::cin;
 
 mt19937 rnd(chrono::steady_clock::now().time_since_epoch().count());
-ll rd(ll l, ll r)
+int rd(int l, int r)
 {
-    ll h=(abs((ll)(rnd()))) % (r - l + 1);
+    int h=(abs((ll)(rnd()))) % (r - l + 1);
     return h + l;
 }
 /***
@@ -25,7 +25,7 @@ ll rd(ll l, ll r)
 int generateRandomNumber(const int min, const int max)
 {
     // TODO: Return a random integer number between min and max
-    return (int)rd((ll)mn,(ll)mx);
+    return rd(min,max);
 }
 
 vector<string> readWordListFromFile(const string& filePath)
