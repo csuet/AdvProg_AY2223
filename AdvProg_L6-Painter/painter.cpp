@@ -43,7 +43,6 @@ void Painter::jumpBackward(int numPixel)
 
 void reformat_degree(double &degree) {
     while (round(degree) >= 360) degree -= 360;
-    if (round(degree) < 0) degree += 360;
 }
 
 
