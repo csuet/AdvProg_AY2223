@@ -2,9 +2,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 mt19937 rnd(chrono::steady_clock::now().time_since_epoch().count());
+
 int rd(int l, int r)
 {
-    int h=(abs((ll)(rnd()))) % (r - l + 1);
+    int h=(abs((long long)(rnd()))) % (r - l + 1);
     return h + l;
 }
 /***
