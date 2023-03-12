@@ -2,6 +2,7 @@
 #include "hangman.h"
 #include<bits/stdc++.h>
 using namespace std;
+#define ll long long
 using std::string;
 using std::vector;
 using std::ifstream;
@@ -24,7 +25,7 @@ ll rd(ll l, ll r)
 int generateRandomNumber(const int min, const int max)
 {
     // TODO: Return a random integer number between min and max
-    return rd(mn,mx);
+    return (int)rd((ll)mn,(ll)mx);
 }
 
 vector<string> readWordListFromFile(const string& filePath)
