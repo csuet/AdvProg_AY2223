@@ -33,13 +33,14 @@ float F(double x,int n) {
 ***/
 double myCos(double x) 
 {
-    double sin =0;
-   int n = 0;
- while (abs(F(x, n)) > 0.00001) {
- sin += F(x, n);
- n++;
- }
- return sqrt(1-(sin*sin));
+    int n=1;
+    double s=0, t=1.0;
+    while(fabs(t) >= 1e-6) {
+        s+=t;
+        t*=(-1)*x*x/(n*(n+1));
+        n=n+2;
+    }
+    return s;
 }
 
 /***
