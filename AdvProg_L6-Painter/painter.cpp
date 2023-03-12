@@ -10,7 +10,7 @@ int sqr(int x) { return x*x; }
 ***/
 void Painter::setColor(SDL_Color color) 
 { 
-    this->color = color
+    this->color = color;
     // TODO: set the color value for the Painter and set Render Draw Color
 }
 
@@ -67,7 +67,7 @@ void Painter::turnLeft(double degree)
 {
     // TODO: rotate left the painter 
     this->angle += degree;
-    reformat_degree(this->angle)
+    reformat_degree(this->angle);
 }
 
 
@@ -81,7 +81,7 @@ void Painter::turnRight(double degree)
 {
     // TODO: rotate right the painter
     this->angle -= degree;
-    reformat_degree(this->angle)    
+    reformat_degree(this->angle);   
 }
 
 /***  
