@@ -23,8 +23,8 @@ void Painter::setColor(SDL_Color color)
 void Painter::jumpForward(int numPixel)
 {
     // TODO: jump the painter forward
-    y += sin(rangle()) * numPixel;
-    x += cos(rangle()) * numPixel;
+    y = sin(rangle()) * numPixel;
+    x = cos(rangle()) * numPixel;
 }
 
 
@@ -37,8 +37,8 @@ void Painter::jumpForward(int numPixel)
 void Painter::jumpBackward(int numPixel)
 {
     // TODO: jump the painter backward
-    y -= sin(rangle()) * numPixel;
-    x -= cos(rangle()) * numPixel;
+    y = -sin(rangle()) * numPixel;
+    x = -cos(rangle()) * numPixel;
 }
 
 void reformat_degree(double degree) {
