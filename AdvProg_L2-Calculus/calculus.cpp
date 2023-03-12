@@ -13,17 +13,6 @@ double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
 
-float F(double x,int n) {
-	int a;
-	if (n % 2 == 0)
-		a = 1;
-	else
-		a = -1;
-	float temp = 1;
-	for (int i = 1; i <= 2 * n + 1; i++)
-		temp = temp * x / i;
-	return a * temp;
-}
 
 /***
     Args:
@@ -51,13 +40,8 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    double sin =0;
-   int n = 0;
- while (abs(F(x, n)) > 0.00001) {
- sin += F(x, n);
- n++;
- }
-    return sin;
+
+    return sin(x);
 }
 
 
