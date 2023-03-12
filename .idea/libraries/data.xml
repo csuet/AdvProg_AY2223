@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="data">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/AdvProg_L4-SimpleAI/data/english3.zip!/" />
+      <root url="jar://$PROJECT_DIR$/AdvProg_L4-SimpleAI/data/usa2.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
