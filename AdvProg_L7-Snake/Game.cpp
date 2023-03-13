@@ -54,7 +54,6 @@ void Game::snakeMoveTo(Position pos) {
 	//  START CODE HERE
 	if(getCellType(pos)==CELL_OFF_BOARD||getCellType(pos)==CELL_SNAKE){
         status=GAME_OVER;
-        return;
 	}
 	else{
         if(getCherryPosition()==pos){
@@ -217,7 +216,6 @@ void Game::setCellType(Position pos, CellType cellType)
 	//
 	// START CODE HERE
 	if(pos.isInsideBox(0,0,width,height)) squares[pos.y][pos.x]==cellType;
-	else return ;
 	// END CODE HERE
 }
 

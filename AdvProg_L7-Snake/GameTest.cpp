@@ -83,7 +83,7 @@ bool verifySnakeMoveTo(CellType cellType, GameStatus expectedStatus){
   gameTest.setCellType(movingPos, cellType);
   gameTest.snakeMoveTo(movingPos);
 
-  if (cellType == CELL_OFF_BOARD || cellType==CELL_SNAKE){
+  if (cellType == CELL_OFF_BOARD || CELL_SNAKE){
     return gameTest.getGameStatus() == expectedStatus;
   }
 
