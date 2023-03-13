@@ -255,7 +255,6 @@ void Game::setCellType(Position pos, CellType cellType)
 	//
 	// START CODE HERE
 	if(pos.isInsideBox(0,0,width,height)) squares[pos.y][pos.x]==cellType;
-	else return ;
 	// END CODE HERE
 }
 
