@@ -38,7 +38,7 @@ struct TestStruct
 
 void runTestLoop(TestStruct testCases[], int testSize){
     int i;
-    
+
     for (i = 0; i< testSize; i++){
         std::cout << testCases[i].testName + ": ";
         if (testCases[i].result == testCases[i].expected)
@@ -82,7 +82,7 @@ bool verifySnakeMoveTo(CellType cellType, GameStatus expectedStatus){
 
   gameTest.setCellType(movingPos, cellType);
   gameTest.snakeMoveTo(movingPos);
-  
+
   if (cellType == CELL_OFF_BOARD || CELL_SNAKE){
     return gameTest.getGameStatus() == expectedStatus;
   }
@@ -136,7 +136,7 @@ bool verifyAddCherry(){
   if(actualCherryPos == nullptr){
     return false;
   }
- 
+
   return updatedCherryPos.x == actualCherryPos->x && updatedCherryPos.y == actualCherryPos->y;
 }
 
@@ -199,7 +199,7 @@ protected:
             "snake should continue moving if snake moves to CELL_EMPTY"
           },
         };
-      
+
         runTestLoop(snakeMoveToTestCases, testSize);
   }
 
@@ -221,7 +221,7 @@ protected:
             "cell should be CELL_EMPTY is snake leaves"
           }
         };
-      
+
         runTestLoop(snakeLeaveTestCases, testSize);
   }
 
@@ -256,10 +256,10 @@ protected:
           },
 
         };
-      
+
         runTestLoop(snakeLeaveTestCases, testSize);
   }
-  
+
   void testSetCellType(void){
       int testSize = 4;
       std::string sharedName = "[testSetCellType] ";
@@ -279,7 +279,7 @@ protected:
           }
 
         };
-      
+
         runTestLoop(snakeLeaveTestCases, testSize);
   }
 
@@ -288,7 +288,7 @@ protected:
     int testSize = 1;
     std::string sharedName = "[testAddCherry] ";
 
-    TestStruct snakeAddCherryTestCases[testSize] = 
+    TestStruct snakeAddCherryTestCases[testSize] =
     {
       {
         sharedName,
@@ -304,7 +304,7 @@ protected:
     int testSize = 2;
     std::string sharedName = "[testNextStep] ";
 
-    TestStruct snakeTestStepTestCases[testSize] = 
+    TestStruct snakeTestStepTestCases[testSize] =
     {
       {
         sharedName,
@@ -322,11 +322,11 @@ protected:
 
     runTestLoop(snakeTestStepTestCases, testSize);
   }
-  
+
 
   void successTestExit(void) {
     std::cout << "all tests passed! \n";
-    
+
   }
 
 };
