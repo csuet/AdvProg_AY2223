@@ -192,29 +192,48 @@ void Game::nextStep()
  *
  ***/
 
+//void Game::addCherry()
+//{
+//    do {
+//		// init a random position inside the play screen (width, height)
+//		// Suggestion: use rand() function
+//
+//        Position randomPos; // YOUR CODE HERE
+//		randomPos.x=rand()%width;
+//		randomPos.y=rand()%height;
+//		// check if the randomPos is EMPTY
+//        if (getCellType(randomPos) == CELL_EMPTY) {
+//
+//        	// assign the cherry position as randomPos, and set randomPos type as CELL_CHERRY
+//            cherryPosition=randomPos;
+//            setCellType(cherryPosition,CELL_CHERRY);
+//			// YOUR CODE HERE
+//			// YOUR CODE HERE
+//
+//       		break;
+//        }
+//    } while (true);
+//}
 void Game::addCherry()
 {
     do {
 		// init a random position inside the play screen (width, height)
 		// Suggestion: use rand() function
 
-        Position randomPos; // YOUR CODE HERE
-		randomPos.x=rand()%width;
-		randomPos.y=rand()%height;
+        Position randomPos(rand() % width, rand() % height); // YOUR CODE HERE
 		// check if the randomPos is EMPTY
         if (getCellType(randomPos) == CELL_EMPTY) {
 
         	// assign the cherry position as randomPos, and set randomPos type as CELL_CHERRY
-            cherryPosition=randomPos;
-            setCellType(cherryPosition,CELL_CHERRY);
-			// YOUR CODE HERE
-			// YOUR CODE HERE
 
+			// YOUR CODE HERE
+			// YOUR CODE HERE
+			cherryPosition = randomPos;
+			setCellType(randomPos, CELL_CHERRY);
        		break;
         }
     } while (true);
 }
-
 
 /***
  * PLEASE UPDATE THIS METHOD
