@@ -50,20 +50,43 @@ Game::~Game()
  *
 ***/
 
+//void Game::snakeMoveTo(Position pos) {
+//	//  START CODE HERE
+//	if(getCellType(pos)==CELL_OFF_BOARD||getCellType(pos)==CELL_SNAKE){
+//        status=GAME_OVER;
+//	}
+//	else{
+//        if(getCherryPosition()==pos){
+//            score++;
+//            snake.eatCherry();
+//            addCherry();
+//        }
+//    else {
+//            setCellType(pos,CELL_SNAKE);
+//	}
+//	}
+//	// END CODE HERE
+//}
 void Game::snakeMoveTo(Position pos) {
 	//  START CODE HERE
-	if(getCellType(pos)==CELL_OFF_BOARD||getCellType(pos)==CELL_SNAKE){
-        status=GAME_OVER;
-	}
-	else{
-        if(getCherryPosition()==pos){
-            score++;
-            snake.eatCherry();
-            addCherry();
-        }
-    else {
-            setCellType(pos,CELL_SNAKE);
-	}
+	switch(getCellType(pos)){
+	       case CELL_OFF_BOARD:{
+	              status = GAME_OVER;
+	              break;
+	       }
+	       case CELL_SNAKE:{
+                     status = GAME_OVER;
+                     break;
+	       }
+	       case CELL_CHERRY:{
+	              score ++;
+	              snake.eatCherry();
+	              addCherry();
+	              break;
+	       }
+	       default:{
+	              setCellType(pos, CELL_SNAKE);
+	       }
 	}
 	// END CODE HERE
 }
